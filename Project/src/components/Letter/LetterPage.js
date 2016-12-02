@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import LetterForm from './LetterForm';
-import {send} from '../../models/letter';
+import {sendLetter} from '../../models/letter';
+import {sendPresent} from '../../models/present'
 
 export default class LetterPage extends Component {
     constructor(props) {
@@ -24,6 +25,15 @@ export default class LetterPage extends Component {
             case 'text':
                 this.setState({ text: event.target.value });
                 break;
+            case 'present1':
+                this.setState({ present1: event.target.value });
+                break;
+            case 'present2':
+                this.setState({ present2: event.target.value });
+                break;
+            case 'present3':
+                this.setState({ present3: event.target.value });
+                break;
             default:
                 break;
         }
@@ -38,11 +48,18 @@ export default class LetterPage extends Component {
         return sessionStorage.getItem('username');
     }
 
+    sendPresents(){
+        sendPresent(sessionStorage.getItem('letter_id'),this.state.present1,this.getCurrentUsername());
+        sendPresent(sessionStorage.getItem('letter_id'),this.state.present2,this.getCurrentUsername());
+        sendPresent(sessionStorage.getItem('letter_id'),this.state.present3,this.getCurrentUsername());
+    }
+
     onSubmitHandler(event) {
         event.preventDefault();
         this.setState({ submitDisabled: true });
 
-        send(this.getCurrentUsername(), this.state.title, this.state.text, this.getCurrentDate(), this.onSubmitResponse);
+        sendLetter(this.getCurrentUsername(), this.state.title, this.state.text, this.getCurrentDate(),this.onSubmitResponse)
+            .then(this.sendPresents())
     }
 
     onSubmitResponse(response) {

@@ -1,7 +1,9 @@
 import * as requester from './requester';
 import observer from './observer';
 
-function send(author, title, text, date, callback) {
+
+
+function sendLetter(author, title, text, date, callback) {
     let letterData = {
         author,
         title,
@@ -9,13 +11,17 @@ function send(author, title, text, date, callback) {
         date
     };
 
-    requester.post('appdata', 'letters', letterData, 'kinvey')
+    return requester.post('appdata', 'letters', letterData, 'kinvey')
         .then(sendSuccess);
 
     function sendSuccess(response) {
+        //get letter-id , save it in session
+        //will use when send another request for the presents
+        sessionStorage.setItem('letter_id',response._id);
+
         observer.showSuccess('Successfully sent email.');
         callback(true);
     }
 }
 
-export {send}
+export {sendLetter}
