@@ -51,7 +51,7 @@ export default class RegisterForm extends Component {
                 <div className="form-group">
                     <label>I am:</label>
                     <select
-
+className="form-control "
                         name="type"
                         value={this.props.type}
                         disabled={this.props.submitDisabled}
