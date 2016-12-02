@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import RegisterForm from './RegisterForm';
-import {register} from '../../models/user';
+import LoginForm from './LoginForm';
+import {login} from '../../models/user';
 
-export default class RegisterPage extends Component {
+export default class LoginPage extends Component {
     constructor(props) {
         super(props);
-        this.state = { username: '', password: '', repeat: '', submitDisabled: false };
+        this.state = { username: '', password: '', submitDisabled: false };
         this.bindEventHandlers();
     }
 
@@ -24,9 +24,6 @@ export default class RegisterPage extends Component {
             case 'password':
                 this.setState({ password: event.target.value });
                 break;
-            case 'repeat':
-                this.setState({ repeat: event.target.value });
-                break;
             default:
                 break;
         }
@@ -34,17 +31,13 @@ export default class RegisterPage extends Component {
 
     onSubmitHandler(event) {
         event.preventDefault();
-        if (this.state.password !== this.state.repeat) {
-            alert("Passwords don't match");
-            return;
-        }
         this.setState({ submitDisabled: true });
-        register(this.state.username, this.state.password, this.onSubmitResponse);
+        login(this.state.username, this.state.password, this.onSubmitResponse);
     }
 
     onSubmitResponse(response) {
         if (response === true) {
-            // Navigate away from register page
+            // Navigate away from login page
             this.context.router.push('/');
         } else {
             // Something went wrong, let the user try again
@@ -55,11 +48,10 @@ export default class RegisterPage extends Component {
     render() {
         return (
             <div>
-                <h1>Register Page</h1>
-                <RegisterForm
+                <h1>Login Page</h1>
+                <LoginForm
                     username={this.state.username}
                     password={this.state.password}
-                    repeat={this.state.repeat}
                     submitDisabled={this.state.submitDisabled}
                     onChangeHandler={this.onChangeHandler}
                     onSubmitHandler={this.onSubmitHandler}
@@ -69,6 +61,6 @@ export default class RegisterPage extends Component {
     }
 }
 
-RegisterPage.contextTypes = {
+LoginPage.contextTypes = {
     router: React.PropTypes.object
 };

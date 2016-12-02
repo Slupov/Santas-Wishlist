@@ -7,6 +7,8 @@ import {IndexRoute, Router, Route, browserHistory} from 'react-router';
 import HomePage from './components/Home/HomePage';
 import About from './components/About/AboutPage';
 import Register from './components/Register/RegisterPage';
+import Login from './components/Login/LoginPage';
+import Logout from './components/Logout/LogoutPage';
 
 ReactDOM.render(
     <Router history={browserHistory}>
@@ -15,6 +17,8 @@ ReactDOM.render(
         </Route>
         <Route path="about" component={About}/>
         <Route path="register" component={Register}/>
+        <Route path="login" component={Login}/>
+        <Route path="logout" component={Logout}/>
     </Router>,
     document.getElementById('root')
 );

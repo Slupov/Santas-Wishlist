@@ -16,6 +16,8 @@ export default class HomePage extends Component {
                 <h1>Home Page</h1>
                 <Link to="/about" className="btn btn-default" activeClassName="btn btn-default active">About</Link>
                 <Link to="/register" className="btn btn-default" activeClassName="btn btn-default active">Register</Link>
+                <Link to="/login" className="btn btn-default" activeClassName="btn btn-default active">Login</Link>
+                <Link to="/logout" className="btn btn-default" activeClassName="btn btn-default active">Logout</Link>
                 {message}
             </div>
         );
