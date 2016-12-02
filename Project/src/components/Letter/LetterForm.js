@@ -27,9 +27,43 @@ export default class LetterForm extends Component {
                     />
                 </div>
 
-                <div>PRESENT 1 </div>
-                <div>PRESENT 2 </div>
-                <div>PRESENT 3 </div>
+                <div class="presents">
+                    <div className="form-group">
+                        <label>Present 1:</label>
+                        <input
+                            className="form-control"
+                            type="text"
+                            name="present1"
+                            value={this.props.present1}
+                            disabled={this.props.submitDisabled}
+                            onChange={this.onChangeHandler}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Present 2:</label>
+                        <input
+                            className="form-control"
+                            type="text"
+                            name="present2"
+                            value={this.props.present2}
+                            disabled={this.props.submitDisabled}
+                            onChange={this.onChangeHandler}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label>Present 3:</label>
+                        <input
+                            className="form-control"
+                            type="text"
+                            name="present3"
+                            value={this.props.present3}
+                            disabled={this.props.submitDisabled}
+                            onChange={this.props.onChangeHandler}
+                        />
+                    </div>
+                </div>
+
                 <input className="btn btn-default" type="submit" value="Send" disabled={this.props.submitDisabled}/>
             </form>
         );
