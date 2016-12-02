@@ -9,6 +9,7 @@ import About from './components/About/AboutPage';
 import Register from './components/Register/RegisterPage';
 import Login from './components/Login/LoginPage';
 import Logout from './components/Logout/LogoutPage';
+import Letter from './components/Letter/LetterPage';
 
 ReactDOM.render(
     <Router history={browserHistory}>
@@ -19,6 +20,7 @@ ReactDOM.render(
         <Route path="register" component={Register}/>
         <Route path="login" component={Login}/>
         <Route path="logout" component={Logout}/>
+        <Route path="letter" component={Letter}/>
     </Router>,
     document.getElementById('root')
 );
