@@ -37,6 +37,31 @@ export default class RegisterForm extends Component {
                         onChange={this.props.onChangeHandler}
                     />
                 </div>
+                <div className="form-group">
+                    <label>Email:</label>
+                    <input
+                        className="form-control"
+                        type="text"
+                        name="email"
+                        value={this.props.email}
+                        disabled={this.props.submitDisabled}
+                        onChange={this.props.onChangeHandler}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>I am:</label>
+                    <select
+className="form-control "
+                        name="type"
+                        value={this.props.type}
+                        disabled={this.props.submitDisabled}
+                        onChange={this.props.onChangeHandler}
+                    >
+                         <option selected value="child">Child</option>
+                        <option value="parent">Parent</option>
+
+                    </select>
+                </div>
                 <input className="btn btn-default" type="submit" value="Register" disabled={this.props.submitDisabled}/>
             </form>
         );
