@@ -34,11 +34,15 @@ export default class LetterPage extends Component {
         return current.toDateString();
     }
 
+    getCurrentUsername(){
+        return sessionStorage.getItem('username');
+    }
+
     onSubmitHandler(event) {
         event.preventDefault();
         this.setState({ submitDisabled: true });
 
-        send(this.state.author, this.state.title, this.state.text, this.getCurrentDate(), this.onSubmitResponse);
+        send(this.getCurrentUsername(), this.state.title, this.state.text, this.getCurrentDate(), this.onSubmitResponse);
     }
 
     onSubmitResponse(response) {

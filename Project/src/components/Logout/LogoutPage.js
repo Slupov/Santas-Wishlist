@@ -13,7 +13,7 @@ export default class LogoutPage extends Component {
 
       onSubmitResponse(response) {
         if (response === true) {
-            // Navigate away from login page
+            // Navigate away from logout page
             this.context.router.push('/');
         } else {
             // Something went wrong, let the user know

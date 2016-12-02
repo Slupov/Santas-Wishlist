@@ -26,6 +26,10 @@ export default class LetterForm extends Component {
                         onChange={this.props.onChangeHandler}
                     />
                 </div>
+
+                <div>PRESENT 1 </div>
+                <div>PRESENT 2 </div>
+                <div>PRESENT 3 </div>
                 <input className="btn btn-default" type="submit" value="Send" disabled={this.props.submitDisabled}/>
             </form>
         );
