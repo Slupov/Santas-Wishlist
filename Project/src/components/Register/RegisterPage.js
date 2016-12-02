@@ -5,7 +5,7 @@ import {register} from '../../models/user';
 export default class RegisterPage extends Component {
     constructor(props) {
         super(props);
-        this.state = { username: '', password: '', repeat: '', email:'',type:'', submitDisabled: false };
+        this.state = { username: '', password: '', repeat: '', email:'',type:'child', address:'', submitDisabled: false };
         this.bindEventHandlers();
     }
 
@@ -33,6 +33,9 @@ export default class RegisterPage extends Component {
             case 'type':
                 this.setState({ type: event.target.value });
                 break;
+            case 'address':
+                this.setState({ address: event.target.value });
+                break;
             default:
                 break;
         }
@@ -45,7 +48,7 @@ export default class RegisterPage extends Component {
             return;
         }
         this.setState({ submitDisabled: true });
-        register(this.state.username, this.state.password, this.state.email, this.state.type, this.onSubmitResponse);
+        register(this.state.username, this.state.password, this.state.email, this.state.type,this.state.address, this.onSubmitResponse);
     }
 
     onSubmitResponse(response) {
@@ -68,6 +71,7 @@ export default class RegisterPage extends Component {
                     repeat={this.state.repeat}
                     email={this.state.email}
                     type={this.state.type}
+                    address={this.state.address}
                     submitDisabled={this.state.submitDisabled}
                     onChangeHandler={this.onChangeHandler}
                     onSubmitHandler={this.onSubmitHandler}

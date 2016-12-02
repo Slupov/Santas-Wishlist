@@ -51,16 +51,28 @@ export default class RegisterForm extends Component {
                 <div className="form-group">
                     <label>I am:</label>
                     <select
-className="form-control "
+                        className="form-control "
                         name="type"
                         value={this.props.type}
                         disabled={this.props.submitDisabled}
                         onChange={this.props.onChangeHandler}
                     >
-                         <option selected value="child">Child</option>
+                        <option defaultValue="child">Child</option>
                         <option value="parent">Parent</option>
 
                     </select>
+                </div>
+                <div className="form-group">
+                    <label>Address:</label>
+                    <input
+                        className="form-control"
+                        type="text"
+                        name="address"
+                        placeholder="Kaji na dqdo kude jiveesh kotence {P}"
+                        value={this.props.address}
+                        disabled={this.props.submitDisabled}
+                        onChange={this.props.onChangeHandler}
+                    />
                 </div>
                 <input className="btn btn-default" type="submit" value="Register" disabled={this.props.submitDisabled}/>
             </form>
