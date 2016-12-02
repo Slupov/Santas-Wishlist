@@ -14,10 +14,12 @@ function saveSession(userInfo) {
 }
 
 // user/login
-function login(username, password, callback) {
+function login(username, password, email,type, callback) {
     let userData = {
         username,
-        password
+        password,
+        email,
+        type
     };
 
     requester.post('user', 'login', userData, 'basic')
@@ -30,10 +32,12 @@ function login(username, password, callback) {
 }
 
 // user/register
-function register(username, password, callback) {
+function register(username, password, email,type,callback) {
     let userData = {
         username,
-        password
+        password,
+        email,
+        type
     };
 
     requester.post('user', '', userData, 'basic')
