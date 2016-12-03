@@ -18,8 +18,9 @@ function sendPresent(letter_id, name, username, callback) {
     }
 }
 
-function getPresents(callback){
-    get('appdata','presents','kinvey').then(callback);
+
+function getPresents(callback) {
+    get('appdata', 'presents', 'kinvey').then(callback);
 }
 
 export {sendPresent,getPresents}
