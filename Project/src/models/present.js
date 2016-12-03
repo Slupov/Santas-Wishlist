@@ -19,7 +19,7 @@ function sendPresent(letter_id, name, username, callback) {
 }
 
 function getPresents(){
-    return requester.get('appdata','presents','kinvey');
+    requester.get('appdata','presents','kinvey');
 }
 
 export {sendPresent,getPresents}
