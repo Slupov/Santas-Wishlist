@@ -19,7 +19,6 @@ ReactDOM.render(
             <IndexRoute component={HomePage}/>
         </Route>
         <Route path="letters">
-            <IndexRoute component={Presents}/>
             <Route path=":letterId" component={LetterDetails}/>
         </Route>
         <Route path="about" component={About}/>
