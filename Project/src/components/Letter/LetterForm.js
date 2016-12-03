@@ -36,7 +36,7 @@ export default class LetterForm extends Component {
                             name="present1"
                             value={this.props.present1}
                             disabled={this.props.submitDisabled}
-                            onChange={this.onChangeHandler}
+                            onChange={this.props.onChangeHandler}
                         />
                     </div>
                     <div className="form-group">
@@ -47,7 +47,7 @@ export default class LetterForm extends Component {
                             name="present2"
                             value={this.props.present2}
                             disabled={this.props.submitDisabled}
-                            onChange={this.onChangeHandler}
+                            onChange={this.props.onChangeHandler}
                         />
                     </div>
 

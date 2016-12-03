@@ -5,7 +5,8 @@ function sendPresent(letter_id, name, username, callback) {
     let presentData = {
         letter_id,
         name,
-        username
+        username,
+        status: "pending"
     };
 
     requester.post('appdata', 'presents', presentData, 'kinvey')
@@ -17,4 +18,8 @@ function sendPresent(letter_id, name, username, callback) {
     }
 }
 
-export {sendPresent}
+function getPresents(){
+    return requester.get('appdata','presents','kinvey');
+}
+
+export {sendPresent,getPresents}

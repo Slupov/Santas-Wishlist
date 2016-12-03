@@ -6,8 +6,18 @@ import {sendPresent} from '../../models/present'
 export default class LetterPage extends Component {
     constructor(props) {
         super(props);
-        this.state = { author: '', title: '', text: '', data: '', submitDisabled: false };
+        this.state = {
+            author: '',
+            title: '',
+            text: '',
+            data: '',
+            present1: '',
+            present2: '',
+            present3: '',
+            submitDisabled: false
+        };
         this.bindEventHandlers();
+        sessionStorage.removeItem('letter_id');
     }
 
     bindEventHandlers() {
@@ -20,55 +30,60 @@ export default class LetterPage extends Component {
     onChangeHandler(event) {
         switch (event.target.name) {
             case 'title':
-                this.setState({ title: event.target.value });
+                this.setState({title: event.target.value});
                 break;
             case 'text':
-                this.setState({ text: event.target.value });
+                this.setState({text: event.target.value});
                 break;
             case 'present1':
-                this.setState({ present1: event.target.value });
+                this.setState({present1: event.target.value});
                 break;
             case 'present2':
-                this.setState({ present2: event.target.value });
+                this.setState({present2: event.target.value});
                 break;
             case 'present3':
-                this.setState({ present3: event.target.value });
+                this.setState({present3: event.target.value});
                 break;
             default:
                 break;
         }
     }
 
-    getCurrentDate(){
+    getCurrentDate() {
         let current = new Date();
-        return current.toDateString();
+        return current.toUTCString();
     }
 
-    getCurrentUsername(){
+    getCurrentUsername() {
         return sessionStorage.getItem('username');
     }
 
-    sendPresents(){
-        sendPresent(sessionStorage.getItem('letter_id'),this.state.present1,this.getCurrentUsername());
-        sendPresent(sessionStorage.getItem('letter_id'),this.state.present2,this.getCurrentUsername());
-        sendPresent(sessionStorage.getItem('letter_id'),this.state.present3,this.getCurrentUsername());
+    getCurrentLetterId(){
+        return sessionStorage.getItem('letter_id');
+    }
+
+    sendPresents() {
+        sendPresent(this.getCurrentLetterId(), this.state.present1, this.getCurrentUsername());
+        sendPresent(this.getCurrentLetterId(), this.state.present2, this.getCurrentUsername());
+        sendPresent(this.getCurrentLetterId(), this.state.present3, this.getCurrentUsername());
     }
 
     onSubmitHandler(event) {
         event.preventDefault();
-        this.setState({ submitDisabled: true });
+        this.setState({submitDisabled: true});
 
-        sendLetter(this.getCurrentUsername(), this.state.title, this.state.text, this.getCurrentDate(),this.onSubmitResponse)
-            .then(this.sendPresents())
+        //sends the letter, gets its id
+        //then sends all presents with its id
+        sendLetter(this.getCurrentUsername(), this.state.title, this.state.text, this.getCurrentDate(), this.onSubmitResponse,this.sendPresents())
     }
 
     onSubmitResponse(response) {
         if (response === true) {
-            // Navigate away from login page
+            // Navigate away from create letter page
             this.context.router.push('/');
         } else {
             // Something went wrong, let the user try again
-            this.setState({ submitDisabled: true });
+            this.setState({submitDisabled: true});
         }
     }
 
@@ -80,6 +95,9 @@ export default class LetterPage extends Component {
                 <LetterForm
                     title={this.state.title}
                     text={this.state.text}
+                    present1={this.state.present1}
+                    present2={this.state.present2}
+                    present3={this.state.present3}
                     submitDisabled={this.state.submitDisabled}
                     onChangeHandler={this.onChangeHandler}
                     onSubmitHandler={this.onSubmitHandler}

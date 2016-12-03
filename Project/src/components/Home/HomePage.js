@@ -13,6 +13,7 @@ export default class HomePage extends Component {
                     <Link to="/letter" className="btn btn-default" activeClassName="btn btn-default active">Send Letter</Link>
                     <Link to="/about" className="btn btn-default" activeClassName="btn btn-default active">About</Link>
                     <Link to="/logout" className="btn btn-default" activeClassName="btn btn-default active">Logout</Link>
+                    <Link to="/presents" className="btn btn-default" activeClassName="btn btn-default active">All presents</Link>
                     {message}
                 </div>
             }
