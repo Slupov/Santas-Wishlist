@@ -12,6 +12,7 @@ import Logout from './components/Logout/LogoutPage';
 import Letter from './components/Letter/LetterPage';
 import Presents from './components/Present/PresentPage'
 
+
 ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={App}>
@@ -22,6 +23,10 @@ ReactDOM.render(
         <Route path="login" component={Login}/>
         <Route path="logout" component={Logout}/>
         <Route path="letter" component={Letter}/>
+        <Route path="letter">
+            <IndexRoute component={Letter}/>
+            {/*<Route path=":letterId" component={Details}/>*/}
+        </Route>
         <Route path="presents" component={Presents}/>
     </Router>,
     document.getElementById('root')
