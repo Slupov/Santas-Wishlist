@@ -1,7 +1,8 @@
-import * as requester from './requester';
+import {post} from './requester';
+
 import observer from './observer';
 
-function sendLetter(author, title, text, date, callback,callback2) {
+function sendLetter(author, title, text, date, callback) {
     let letterData = {
         author,
         title,
@@ -9,7 +10,7 @@ function sendLetter(author, title, text, date, callback,callback2) {
         date
     };
 
-    return requester.post('appdata', 'letters', letterData, 'kinvey')
+    return post('appdata', 'letters', letterData, 'kinvey')
         .then(sendSuccess);
 
     function sendSuccess(response) {
@@ -17,15 +18,14 @@ function sendLetter(author, title, text, date, callback,callback2) {
         //will use when send another request for the presents
         alert("STANA");
         sessionStorage.setItem('letter_id',response._id);
-        callback2();
 
         observer.showSuccess('Successfully sent email.');
         callback(true);
     }
 }
 
-function getLetters(){
-    return requester.get('appdata','letters','kinvey')
-}
+// function getLetters(){
+//     return get('appdata','letters','kinvey')
+// }
 
 export {sendLetter}

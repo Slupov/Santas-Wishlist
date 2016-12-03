@@ -1,4 +1,4 @@
-import * as requester from './requester';
+import {get, post} from './requester';
 import observer from './observer';
 
 function sendPresent(letter_id, name, username, callback) {
@@ -9,7 +9,7 @@ function sendPresent(letter_id, name, username, callback) {
         status: "pending"
     };
 
-    requester.post('appdata', 'presents', presentData, 'kinvey')
+    post('appdata', 'presents', presentData, 'kinvey')
         .then(sendSuccess);
 
     function sendSuccess(response) {
@@ -18,8 +18,8 @@ function sendPresent(letter_id, name, username, callback) {
     }
 }
 
-function getPresents(){
-    return requester.get('appdata','presents','kinvey');
+function getPresents(callback){
+    get('appdata','presents','kinvey').then(callback);
 }
 
 export {sendPresent,getPresents}

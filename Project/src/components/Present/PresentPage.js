@@ -9,21 +9,21 @@ export default class PresentPage extends Component {
         this.state = {
             presents: []
         };
+        this.bindEventHandlers();
     }
 
-    renderContent() {
-        //requset -> foreach -> return component (row) containing single presents
-        let instance = this;
-        let grid = {};
+    bindEventHandlers() {
+        this.onLoadSuccess = this.onLoadSuccess.bind(this);
+    }
 
-        function getPresentsSuccess(response) {
-            instance.setState({presents:response});
-            console.log(response);
-        }
-        //sends get request
-        getPresents()
-            .then(getPresentsSuccess);
+    onLoadSuccess(response) {
+        // Display presents
+        this.setState({presents: response})
+    }
 
+    componentDidMount() {
+        // Request list of presents from the server
+        getPresents(this.onLoadSuccess);
     }
 
     render() {
@@ -31,9 +31,17 @@ export default class PresentPage extends Component {
             <div className="container">
                 <h1>Children's presents!</h1>
                 <div className="row">
-                    {this.renderContent()}
+                    {this.state.presents.map((e, i) => {
+                        return <SinglePresent
+                            key={i}
+                            username={e.username}
+                            name={e.name}
+                            id={e._id}
+                            status={e.status}
+                        />
+                    })}
                 </div>
             </div>
-        );
+        )
     }
 }
