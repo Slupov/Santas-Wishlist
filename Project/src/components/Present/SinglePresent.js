@@ -15,6 +15,10 @@ export default class SinglePresent extends Component {
                     {this.props.username}
                 </div>
                 <div className="presentProperty">
+                    Email:
+                    {this.props.senderEmail}
+                </div>
+                <div className="presentProperty">
                     Present:
                     {this.props.name}
                 </div>

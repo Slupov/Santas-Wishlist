@@ -7,7 +7,9 @@ export default class PresentPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            presents: []
+            presents: [],
+            //if false will return only the logged in parent's child presents
+            listAll: true
         };
         this.bindEventHandlers();
     }
@@ -26,21 +28,31 @@ export default class PresentPage extends Component {
         getPresents(this.onLoadSuccess);
     }
 
+    getContent(){
+        if(this.state.listAll === true){
+            return this.state.presents.map((p, i) => {
+                return <SinglePresent
+                    key={i}
+                    username={p.username}
+                    senderEmail={p.senderEmail}
+                    name={p.name}
+                    present_id={p._id}
+                    letter_id={p.letter_id}
+                    status={p.status}
+                />
+            })
+        }else{
+            return this.state.presents.select(p=>p.username === "cunt")
+        }
+
+    }
+
     render() {
         return (
             <div className="container">
                 <h1>Children's presents!</h1>
                 <div className="row">
-                    {this.state.presents.map((e, i) => {
-                        return <SinglePresent
-                            key={i}
-                            username={e.username}
-                            name={e.name}
-                            present_id={e._id}
-                            letter_id={e.letter_id}
-                            status={e.status}
-                        />
-                    })}
+                    {this.getContent()}
                 </div>
             </div>
         )
