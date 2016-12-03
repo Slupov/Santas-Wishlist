@@ -10,7 +10,7 @@ export default class LetterPage extends Component {
             author: '',
             title: '',
             text: '',
-            data: '',
+            date: '',
             present1: '',
             present2: '',
             present3: '',

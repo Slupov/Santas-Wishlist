@@ -1,4 +1,4 @@
-import {post} from './requester';
+import {post,get} from './requester';
 
 import observer from './observer';
 
@@ -27,5 +27,9 @@ function sendLetter(author, title, text, date, callback) {
 // function getLetters(){
 //     return get('appdata','letters','kinvey')
 // }
+function loadLetterDetails(letterId, onSuccess) {
+    get('appdata', 'letters/' + letterId, 'kinvey')
+        .then(onSuccess);
+}
 
-export {sendLetter}
+export {sendLetter,loadLetterDetails}

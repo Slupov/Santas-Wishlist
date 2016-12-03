@@ -10,12 +10,16 @@ import Register from './components/Register/RegisterPage';
 import Login from './components/Login/LoginPage';
 import Logout from './components/Logout/LogoutPage';
 import Letter from './components/Letter/LetterPage';
-import Presents from './components/Present/PresentPage'
-
+import Presents from './components/Present/PresentPage';
+import LetterDetails from './components/Letter/LetterDetails';
 ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={App}>
             <IndexRoute component={HomePage}/>
+        </Route>
+        <Route path="letters">
+            <IndexRoute component={Presents}/>
+            <Route path=":letterId" component={LetterDetails}/>
         </Route>
         <Route path="about" component={About}/>
         <Route path="register" component={Register}/>
