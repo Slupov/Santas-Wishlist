@@ -1,11 +1,12 @@
 import {get, post} from './requester';
 import observer from './observer';
 
-function sendPresent(letter_id, name, username, callback) {
+function sendPresent(letter_id, name, username, senderEmail, callback) {
     let presentData = {
         letter_id,
         name,
         username,
+        senderEmail,
         status: "pending"
     };
 
@@ -23,4 +24,4 @@ function getPresents(callback) {
     get('appdata', 'presents', 'kinvey').then(callback);
 }
 
-export {sendPresent,getPresents}
+export {sendPresent, getPresents}

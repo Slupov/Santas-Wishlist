@@ -9,6 +9,11 @@ function saveSession(userInfo) {
     sessionStorage.setItem('userId', userId);
     let username = userInfo.username;
     sessionStorage.setItem('username', username);
+    let userType = userInfo.type;
+    sessionStorage.setItem('userType',userType);
+    let userEmail = userInfo.email;
+    sessionStorage.setItem('email',userEmail);
+
 
     observer.onSessionUpdate();
 }

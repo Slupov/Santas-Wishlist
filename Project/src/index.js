@@ -12,6 +12,7 @@ import Logout from './components/Logout/LogoutPage';
 import Letter from './components/Letter/LetterPage';
 import Presents from './components/Present/PresentPage';
 import LetterDetails from './components/Letter/LetterDetails';
+
 ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={App}>

@@ -62,10 +62,14 @@ export default class LetterPage extends Component {
         return sessionStorage.getItem('letter_id');
     }
 
+    getCurrentEmail(){
+        return sessionStorage.getItem('email');
+    }
+
     sendPresents() {
-        sendPresent(this.getCurrentLetterId(), this.state.present1, this.getCurrentUsername());
-        sendPresent(this.getCurrentLetterId(), this.state.present2, this.getCurrentUsername());
-        sendPresent(this.getCurrentLetterId(), this.state.present3, this.getCurrentUsername());
+        sendPresent(this.getCurrentLetterId(), this.state.present1, this.getCurrentUsername(),this.getCurrentEmail());
+        sendPresent(this.getCurrentLetterId(), this.state.present2, this.getCurrentUsername(),this.getCurrentEmail());
+        sendPresent(this.getCurrentLetterId(), this.state.present3, this.getCurrentUsername(),this.getCurrentEmail());
     }
 
     onSubmitHandler(event) {
