@@ -12,6 +12,7 @@ import Logout from './components/Logout/LogoutPage';
 import Letter from './components/Letter/LetterPage';
 import Presents from './components/Present/PresentPage';
 import LetterDetails from './components/Letter/LetterDetails';
+import InboxPage from './components/Mailbox/Mailbox';
 
 ReactDOM.render(
     <Router history={browserHistory}>
@@ -27,6 +28,7 @@ ReactDOM.render(
         <Route path="logout" component={Logout}/>
         <Route path="letter" component={Letter}/>
         <Route path="presents" component={Presents}/>
+        <Route path="inbox" component={InboxPage}/>
     </Router>,
     document.getElementById('root')
 );

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import LetterForm from './LetterForm';
 import {sendLetter} from '../../models/letter';
 import {sendPresent} from '../../models/present'
+import {getCurrentDate,getCurrentUsername,getCurrentLetterId,getCurrentEmail} from '../../utilities'
 
 export default class LetterPage extends Component {
     constructor(props) {
@@ -49,36 +50,20 @@ export default class LetterPage extends Component {
         }
     }
 
-    getCurrentDate() {
-        let current = new Date();
-        return current.toUTCString();
-    }
-
-    getCurrentUsername() {
-        return sessionStorage.getItem('username');
-    }
-
-    getCurrentLetterId(){
-        return sessionStorage.getItem('letter_id');
-    }
-
-    getCurrentEmail(){
-        return sessionStorage.getItem('email');
-    }
-
     sendPresents() {
-        sendPresent(this.getCurrentLetterId(), this.state.present1, this.getCurrentUsername(),this.getCurrentEmail());
-        sendPresent(this.getCurrentLetterId(), this.state.present2, this.getCurrentUsername(),this.getCurrentEmail());
-        sendPresent(this.getCurrentLetterId(), this.state.present3, this.getCurrentUsername(),this.getCurrentEmail());
+        sendPresent(getCurrentLetterId(), this.state.present1, getCurrentUsername(),getCurrentEmail());
+        sendPresent(getCurrentLetterId(), this.state.present2, getCurrentUsername(),getCurrentEmail());
+        sendPresent(getCurrentLetterId(), this.state.present3, getCurrentUsername(),getCurrentEmail());
     }
 
     onSubmitHandler(event) {
         event.preventDefault();
         this.setState({submitDisabled: true});
 
+        //!!!SEND THE LETTER FIRST -> GET THE LETTER ID -> SEND THE PRESENTS
         //sends the letter, gets its id
         //then sends all presents with its id
-        sendLetter(this.getCurrentUsername(), this.state.title, this.state.text, this.getCurrentDate(), this.onSubmitResponse,this.sendPresents())
+        sendLetter(this.getCurrentUsername(), this.state.title, this.state.text, getCurrentDate(), this.onSubmitResponse,this.sendPresents())
     }
 
     onSubmitResponse(response) {

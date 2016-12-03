@@ -19,6 +19,7 @@ export default class HomePage extends Component {
                           activeClassName="btn btn-default active">Logout</Link>
                     <Link to="/presents" className="btn btn-default" activeClassName="btn btn-default active">All
                         presents</Link>
+                    <Link to="/inbox" className="btn btn-default" activeClassName="btn btn-default active">My Inbox</Link>
                     {message}
                 </div>
             }
