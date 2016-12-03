@@ -87,7 +87,10 @@ export default class PresentPage extends Component {
                        className="btn btn-default"
                        name="myKidsBtn"
                        id="myKidsBtn"
-                       value={"My Children Letters Only"}
+                       value={
+                           sessionStorage.getItem('userType') ==="parent" ?
+                            "My Children Letters Only" : "My siblings and mine letters only"
+                       }
                        disabled={false}
                        onClick={this.onChangeHandler}
                 />
