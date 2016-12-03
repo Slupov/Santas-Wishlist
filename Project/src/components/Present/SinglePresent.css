@@ -1,0 +1,11 @@
+.col-sm-2{
+    background-color: yellow;
+    margin: 10px;
+    border-color: #DDD;
+}
+
+/*not working?*/
+.presentProperty{
+    border-color: black;
+    color: black;
+}

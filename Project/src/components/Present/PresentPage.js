@@ -36,7 +36,8 @@ export default class PresentPage extends Component {
                             key={i}
                             username={e.username}
                             name={e.name}
-                            id={e._id}
+                            present_id={e._id}
+                            letter_id={e.letter_id}
                             status={e.status}
                         />
                     })}
