@@ -1,4 +1,4 @@
-import {get, post,update} from './requester';
+import {get, post, update} from './requester';
 
 function sendPresent(letter_id, name, username, senderEmail, callback) {
     let presentData = {
@@ -18,37 +18,33 @@ function sendPresent(letter_id, name, username, senderEmail, callback) {
     }
 }
 
-
 function getPresents(callback) {
     get('appdata', 'presents', 'kinvey').then(callback);
 }
+
 function getPresent(presentID) {
     return get('appdata', 'presents/' + presentID, 'kinvey');
-
 }
 
-function updatePresentStatus(id,status) {
- getPresent(id)
-     .then(function (response) {
-         let presentData = {
-             letter_id:response.letter_id,
-             name:response.name,
-             username:response.username,
-             senderEmail:response.senderEmail,
-             status:status
-         };
+function updatePresentStatus(id, status) {
+    getPresent(id)
+        .then(function (response) {
+            let presentData = {
+                letter_id: response.letter_id,
+                name: response.name,
+                username: response.username,
+                senderEmail: response.senderEmail,
+                status: status
+            };
 
-         update('appdata', 'presents/' + id, presentData, 'kinvey');
-         // after this we send email from santa with the status update
-         //hide the buttons
-
-     });
-
-
-
+            update('appdata', 'presents/' + id, presentData, 'kinvey');
+        });
 }
+
 function checkStatus(props) {
-    let showActions=(props.status=='pending')&&(sessionStorage.getItem('userType')=='parent')&&(sessionStorage.getItem('email')==props.senderEmail);
-return showActions;
+    let showActions = (props.status === 'pending') && (sessionStorage.getItem('userType') === 'parent') && (sessionStorage.getItem('email') === props.senderEmail);
+
+    return showActions;
 }
-export {sendPresent, getPresents,updatePresentStatus,checkStatus}
+
+export {sendPresent, getPresents, updatePresentStatus, checkStatus}

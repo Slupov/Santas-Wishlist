@@ -1,4 +1,4 @@
-import {get} from './requester';
+import {get,post} from './requester';
 
 //gets all mails for the current user
 function getMailboxes(callback){
@@ -6,4 +6,9 @@ function getMailboxes(callback){
         .then(callback);
 }
 
-export {getMailboxes}
+function sendMailbox(data,callback) {
+    post('appdata','mailboxes',data,'kinvey')
+        .then(callback);
+}
+
+export {getMailboxes,sendMailbox}

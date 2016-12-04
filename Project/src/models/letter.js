@@ -1,6 +1,6 @@
 import {post,get} from './requester';
+import observer from '../models/observer';
 
-import observer from './observer';
 
 function sendLetter(author, title, text, date, callback) {
     let letterData = {
@@ -17,6 +17,7 @@ function sendLetter(author, title, text, date, callback) {
         //get letter-id , save it in session
         //will use when send another request for the presents
         // alert("Pratih pismoto");
+        observer.showError("Letter successfully sent!");
         sessionStorage.setItem('letter_id',response._id);
         // alert("setnah Id-to na pismoto");
     }

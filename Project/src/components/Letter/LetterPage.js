@@ -3,6 +3,7 @@ import LetterForm from './LetterForm';
 import {sendLetter} from '../../models/letter';
 import {sendPresent} from '../../models/present'
 import {getCurrentDate,getCurrentUsername,getCurrentLetterId,getCurrentEmail} from '../../utilities'
+import observer from '../../models/observer';
 
 export default class LetterPage extends Component {
     constructor(props) {
@@ -63,6 +64,9 @@ export default class LetterPage extends Component {
         event.preventDefault();
         this.setState({submitDisabled: true});
         sendLetter(getCurrentUsername(), this.state.title, this.state.text, getCurrentDate(), this.sendPresents);
+
+        observer.showInfo("Letter successfully sent!");
+
 
         this.context.router.push('/');
 
