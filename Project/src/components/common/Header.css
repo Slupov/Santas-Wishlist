@@ -1,0 +1,11 @@
+.header{
+    background-color: yellow;
+    height:50px;
+    border:1px solid #CCC;
+    width:100%;
+    margin:0px;
+}
+
+.header-title{
+    float:left;
+}

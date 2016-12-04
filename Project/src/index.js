@@ -14,6 +14,10 @@ import Presents from './components/Present/PresentPage';
 import LetterDetails from './components/Letter/LetterDetails';
 import InboxPage from './components/Mailbox/Mailbox';
 
+import '../src/App.css'
+import './components/common/Navbar.css'
+import './components/common/Header.css'
+
 ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={App}>

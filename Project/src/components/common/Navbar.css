@@ -1,5 +1,11 @@
 .navbar{
     text-align: center;
-    margin:auto;
-    color:red;
+    background-color:darkred;
+    border-radius: 0px;
+    display: inline-block;
+    float:right;
+
+    position: absolute;
+    bottom: 0;
+
 }
