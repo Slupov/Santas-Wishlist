@@ -63,7 +63,7 @@ export default class LetterPage extends Component {
         //!!!SEND THE LETTER FIRST -> GET THE LETTER ID -> SEND THE PRESENTS
         //sends the letter, gets its id
         //then sends all presents with its id
-        sendLetter(this.getCurrentUsername(), this.state.title, this.state.text, getCurrentDate(), this.onSubmitResponse,this.sendPresents())
+        sendLetter(getCurrentUsername(), this.state.title, this.state.text, getCurrentDate(), this.onSubmitResponse,this.sendPresents())
     }
 
     onSubmitResponse(response) {

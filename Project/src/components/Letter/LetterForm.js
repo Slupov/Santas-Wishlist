@@ -27,7 +27,7 @@ export default class LetterForm extends Component {
                     />
                 </div>
 
-                <div class="presents">
+                <div className="presents">
                     <div className="form-group">
                         <label>Present 1:</label>
                         <input
