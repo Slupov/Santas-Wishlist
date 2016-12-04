@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../Present/SinglePresent.css'
 import {Link} from 'react-router';
-
+import {updatePresentStatus} from '../../models/present';
 export default class SinglePresent extends Component {
     constructor(props) {
         super(props);
@@ -13,12 +13,12 @@ export default class SinglePresent extends Component {
             case "letterDetail":
                 sessionStorage.setItem('currentLetterId', this.props.letter_id);
                 break;
-            case "approve": //todo
+            case "approve": updatePresentStatus(this.props.present_id,"approved");
                 break;
-            case "reject"://todo
+            case "reject": updatePresentStatus(this.props.present_id,"rejected");
 
                 break;
-            case "maybe":todo
+            case "maybe": updatePresentStatus(this.props.present_id,"maybe");
 
                 break;
             default:
