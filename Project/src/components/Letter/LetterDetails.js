@@ -10,9 +10,7 @@ export default class LetterDetails extends Component {
             date: '',
             title: '',
             text: '',
-
         };
-
         this.bindEventHandlers();
     }
 
@@ -33,18 +31,10 @@ export default class LetterDetails extends Component {
             text: response.text
 
         };
-
         this.setState(newState);
     }
 
-
     render() {
-        let title = 'Letter details';
-        if (this.state.author !== '') {
-            title = this.state.author + ' details';
-        }
-
-
         return (
             <div className="border">
                 <div className="details-box">
