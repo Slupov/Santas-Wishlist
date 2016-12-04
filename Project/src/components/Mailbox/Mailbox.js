@@ -13,21 +13,23 @@ export default class Mailbox extends Component {
             mailboxes: []
         };
         this.bindEventHandlers();
+        getMailboxes(this.updateState);
     }
 
     bindEventHandlers() {
-        this.onLoadSuccess = this.onLoadSuccess.bind(this);
+        this.updateState = this.updateState.bind(this);
     }
-    onLoadSuccess(response) {
+
+    updateState(response) {
         // Filter all mailboxes to the current user
-        console.log(response);
         this.setState({mailboxes: response.filter(m => m.to === getCurrentUsername())});
     }
 
     renderMails() {
         return this.state.mailboxes.map((m, i) => {
             return <Mail
-                key={Number(i)+1}
+                key={i}
+                mailNumber={Number(i)+1}
                 from={m.from}
                 to={m.to}
                 date={m.date}
@@ -37,8 +39,6 @@ export default class Mailbox extends Component {
     }
 
     render() {
-        getMailboxes(this.onLoadSuccess);
-
         return (
             <div>
                 <h1>{getCurrentUsername()}'s Inbox</h1>

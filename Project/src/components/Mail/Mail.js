@@ -5,7 +5,7 @@ export default class Mail extends Component {
     render() {
         return (
             <tr>
-                <th scope="row">{this.props.key}</th>
+                <th scope="row">{this.props.mailNumber}</th>
                 <td>{this.props.from}</td>
                 <td>{this.props.to}</td>
                 <td>{this.props.date}</td>
