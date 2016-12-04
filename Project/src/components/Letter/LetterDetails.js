@@ -12,7 +12,6 @@ export default class LetterDetails extends Component {
             text:'',
 
         };
-
         this.bindEventHandlers();
     }
 
@@ -33,17 +32,14 @@ export default class LetterDetails extends Component {
             text:response.text
 
         };
-
         this.setState(newState);
     }
-
 
     render() {
         let title = 'Letter details';
         if (this.state.author !== '') {
             title = this.state.author + ' details';
         }
-
 
         return (
             <div className="details-box">
@@ -54,7 +50,6 @@ export default class LetterDetails extends Component {
                 <p>{this.state.text || 'No text'}</p>
                 <span className="spanner">Date</span>
                 <p>{this.state.date || 'No date'}</p>
-
             </div>
         )
     }

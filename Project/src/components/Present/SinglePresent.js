@@ -1,16 +1,79 @@
 import React, {Component} from 'react';
 import '../Present/SinglePresent.css'
 import {Link} from 'react-router';
-import {updatePresentStatus,checkStatus} from '../../models/present';
+import {updatePresentStatus, checkStatus} from '../../models/present';
+import {sendMailbox} from '../../models/mailbox'
+import {getCurrentDate} from '../../utilities'
+
+
 export default class SinglePresent extends Component {
     constructor(props) {
         super(props);
-        this.state={
-            showActions:checkStatus(this.props),
-            status:this.props.status
-
+        this.state = {
+            showActions: checkStatus(this.props),
+            status: this.props.status
         };
         this.bindEventHandlers();
+    }
+
+    bindEventHandlers() {
+        // Make sure event handlers have the correct context
+        this.onChangeHandler = this.onChangeHandler.bind(this);
+        this.approve = this.approve.bind(this);
+        this.reject = this.reject.bind(this);
+        this.maybe = this.maybe.bind(this);
+    }
+
+    approve() {
+        updatePresentStatus(this.props.present_id, "approved");
+        this.setState({status: "approved"});
+        this.setState({showActions: false});
+
+        let mailText = `Hohoho,\nDear ${this.props.username}, I heard you've been a good child this year`+
+                        `so I definately think you deserve that present: ${this.props.name}`
+
+        let data = {
+            to: this.props.username,
+            from: "Santa Claus",
+            text: mailText,
+            date: getCurrentDate()
+        }
+
+        sendMailbox(data)
+    }
+
+    reject(){
+        updatePresentStatus(this.props.present_id, "rejected");
+        this.setState({showActions: false});
+        this.setState({status: "rejected"});
+
+        let mailText = `Hohoho,\nDear ${this.props.username}, I don't think my poor elfs can cope with all that hard work and craft your ${this.props.name}.I'm really sorry my child, try to wish for something else that we may have in stock here at the North Pole.`
+
+        let data = {
+            to: this.props.username,
+            from: "Santa Claus",
+            text: mailText,
+            date: getCurrentDate()
+        }
+
+        sendMailbox(data)
+    }
+
+    maybe(){
+        updatePresentStatus(this.props.present_id, "maybe");
+        this.setState({showActions: false});
+        this.setState({status: "maybe"});
+
+        let mailText = `Hohoho,\nDear ${this.props.username}, I'm not very certain that i can get you the ${this.props.name} that you wished for. I suggest you try to wish for something else that I can surely get for you.`
+
+        let data = {
+            to: this.props.username,
+            from: "Santa Claus",
+            text: mailText,
+            date: getCurrentDate()
+        };
+
+        sendMailbox(data)
     }
 
     onChangeHandler(event) {
@@ -19,17 +82,13 @@ export default class SinglePresent extends Component {
                 sessionStorage.setItem('currentLetterId', this.props.letter_id);
                 break;
             case "approve":
-                updatePresentStatus(this.props.present_id,"approved");
-                this.setState({ status: "approved" });
-                this.setState({ showActions: false });
+                this.approve();
                 break;
-            case "reject": updatePresentStatus(this.props.present_id,"rejected");
-                this.setState({ showActions: false });
-                this.setState({ status: "rejected" });
+            case "reject":
+                this.reject();
                 break;
-            case "maybe": updatePresentStatus(this.props.present_id,"maybe");
-                this.setState({ showActions: false });
-                this.setState({ status: "maybe" });
+            case "maybe":
+                this.maybe();
                 break;
 
             default:
@@ -37,21 +96,16 @@ export default class SinglePresent extends Component {
         }
     }
 
-    bindEventHandlers() {
-        // Make sure event handlers have the correct context
-        this.onChangeHandler = this.onChangeHandler.bind(this);
-
-    }
 
     render() {
 
         return (
             <div className="col-sm-2">
-                <div  className="presentImage">
+                <div className="presentImage">
                     <img
                         src={require('../../../images/gift.png')}
                         alt="Present Box"
-                        style={{width:90,height:90}}
+                        style={{width: 90, height: 90}}
                     />
                 </div>
                 <div className="presentProperty">
@@ -64,7 +118,7 @@ export default class SinglePresent extends Component {
                 <div className="presentProperty">
                     Letter:
                     <Link to={"/letters/" + this.props.letter_id} name="letterDetail" onClick={this.onChangeHandler}>
-                        see
+                        See it
                     </Link>
                 </div>
                 <div className="presentProperty">
@@ -77,21 +131,21 @@ export default class SinglePresent extends Component {
                         onClick={this.onChangeHandler}
                         src={require('../../../images/approve.png')}
                         alt="Green approve tick"
-                        style={{width:30,height:30}}
+                        style={{width: 30, height: 30}}
                     />
                     <img
                         name="reject"
                         onClick={this.onChangeHandler}
                         src={require('../../../images/reject.png')}
                         alt="Red reject X"
-                        style={{width:30,height:30}}
+                        style={{width: 30, height: 30}}
                     />
                     <img
                         name="maybe"
                         onClick={this.onChangeHandler}
                         src={require('../../../images/unknown.png')}
                         alt="Yellow question mark"
-                        style={{width:26,height:26}}
+                        style={{width: 26, height: 26}}
                     />
                 </div>
             </div>

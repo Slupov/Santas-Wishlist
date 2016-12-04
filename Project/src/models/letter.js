@@ -1,7 +1,5 @@
 import {post,get} from './requester';
 
-import observer from './observer';
-
 function sendLetter(author, title, text, date, callback) {
     let letterData = {
         author,
