@@ -28,7 +28,11 @@ export default class Mailbox extends Component {
 
     mailOnClickHandler(m){
         console.log(m.text)
-
+        let textRow =
+            <tr className="mail-text-row">
+                <td colspan="3">{m.text}</td>
+            </tr>;
+                
         //inser logic for drop down text info about current Mail
     }
 
