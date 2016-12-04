@@ -47,5 +47,7 @@ function updatePresentStatus(id,status) {
 
 
 }
-
-export {sendPresent, getPresents,updatePresentStatus}
+function checkStatus(status) {
+return (status=='pending');
+}
+export {sendPresent, getPresents,updatePresentStatus,checkStatus}
