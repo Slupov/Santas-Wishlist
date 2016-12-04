@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
 import '../Present/SinglePresent.css'
 import {Link} from 'react-router';
-import {updatePresentStatus} from '../../models/present';
+import {updatePresentStatus,checkStatus} from '../../models/present';
 export default class SinglePresent extends Component {
     constructor(props) {
         super(props);
+        this.state={
+            show:checkStatus(this.props.status)
+        };
         this.bindEventHandlers();
     }
 
@@ -13,14 +16,18 @@ export default class SinglePresent extends Component {
             case "letterDetail":
                 sessionStorage.setItem('currentLetterId', this.props.letter_id);
                 break;
-            case "approve": updatePresentStatus(this.props.present_id,"approved");
+            case "approve":
+                updatePresentStatus(this.props.present_id,"approved");
+
+                this.setState({ show: false });
                 break;
             case "reject": updatePresentStatus(this.props.present_id,"rejected");
-
+                this.setState({ show: false });
                 break;
             case "maybe": updatePresentStatus(this.props.present_id,"maybe");
-
+                this.setState({ show: false });
                 break;
+
             default:
                 break;
         }
@@ -36,7 +43,7 @@ export default class SinglePresent extends Component {
 
         return (
             <div className="col-sm-2">
-                <div className="presentImage">
+                <div  className="presentImage">
                     <img
                         src={require('../../../images/gift.png')}
                         alt="Present Box"
@@ -60,7 +67,7 @@ export default class SinglePresent extends Component {
                     Status:
                     {this.props.status}
                 </div>
-                <div className="presentActions">
+                <div style={{display: this.state.show ? 'block' : 'none'}} className="presentActions">
                     <img
                         name="approve"
                         onClick={this.onChangeHandler}
