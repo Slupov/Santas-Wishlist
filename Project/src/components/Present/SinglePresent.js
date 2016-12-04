@@ -6,7 +6,9 @@ export default class SinglePresent extends Component {
     constructor(props) {
         super(props);
         this.state={
-            show:checkStatus(this.props.status)
+            showActions:checkStatus(this.props),
+            status:this.props.status
+
         };
         this.bindEventHandlers();
     }
@@ -18,14 +20,16 @@ export default class SinglePresent extends Component {
                 break;
             case "approve":
                 updatePresentStatus(this.props.present_id,"approved");
-
-                this.setState({ show: false });
+                this.setState({ status: "approved" });
+                this.setState({ showActions: false });
                 break;
             case "reject": updatePresentStatus(this.props.present_id,"rejected");
-                this.setState({ show: false });
+                this.setState({ showActions: false });
+                this.setState({ status: "rejected" });
                 break;
             case "maybe": updatePresentStatus(this.props.present_id,"maybe");
-                this.setState({ show: false });
+                this.setState({ showActions: false });
+                this.setState({ status: "maybe" });
                 break;
 
             default:
@@ -65,9 +69,9 @@ export default class SinglePresent extends Component {
                 </div>
                 <div className="presentProperty">
                     Status:
-                    {this.props.status}
+                    {this.state.status}
                 </div>
-                <div style={{display: this.state.show ? 'block' : 'none'}} className="presentActions">
+                <div style={{display: this.state.showActions ? 'block' : 'none'}} className="presentActions">
                     <img
                         name="approve"
                         onClick={this.onChangeHandler}

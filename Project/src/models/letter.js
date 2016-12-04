@@ -16,9 +16,9 @@ function sendLetter(author, title, text, date, callback) {
     function sendSuccess(response) {
         //get letter-id , save it in session
         //will use when send another request for the presents
-        alert("Pratih pismoto");
+        // alert("Pratih pismoto");
         sessionStorage.setItem('letter_id',response._id);
-        alert("setnah Id-to na pismoto");
+        // alert("setnah Id-to na pismoto");
     }
 }
 

@@ -47,7 +47,8 @@ function updatePresentStatus(id,status) {
 
 
 }
-function checkStatus(status) {
-return (status=='pending');
+function checkStatus(props) {
+    let showActions=(props.status=='pending')&&(sessionStorage.getItem('userType')=='parent')&&(sessionStorage.getItem('email')==props.senderEmail);
+return showActions;
 }
 export {sendPresent, getPresents,updatePresentStatus,checkStatus}

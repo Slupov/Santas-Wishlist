@@ -55,7 +55,7 @@ export default class LetterPage extends Component {
         //alert("Puskam podarycite");
 
         sendPresent(getCurrentLetterId(), this.state.present1, getCurrentUsername(),getCurrentEmail());
-        sendPresent(getCurrentLetterId(), this.state.present1, getCurrentUsername(),getCurrentEmail());
+        sendPresent(getCurrentLetterId(), this.state.present2, getCurrentUsername(),getCurrentEmail());
         sendPresent(getCurrentLetterId(), this.state.present3, getCurrentUsername(),getCurrentEmail());
     }
 
