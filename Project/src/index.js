@@ -18,17 +18,17 @@ ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={App}>
             <IndexRoute component={HomePage}/>
+            <Route path="letters">
+                <Route path=":letterId" component={LetterDetails}/>
+            </Route>
+            <Route path="about" component={About}/>
+            <Route path="register" component={Register}/>
+            <Route path="login" component={Login}/>
+            <Route path="logout" component={Logout}/>
+            <Route path="letter" component={Letter}/>
+            <Route path="presents" component={Presents}/>
+            <Route path="inbox" component={InboxPage}/>
         </Route>
-        <Route path="letters">
-            <Route path=":letterId" component={LetterDetails}/>
-        </Route>
-        <Route path="about" component={About}/>
-        <Route path="register" component={Register}/>
-        <Route path="login" component={Login}/>
-        <Route path="logout" component={Logout}/>
-        <Route path="letter" component={Letter}/>
-        <Route path="presents" component={Presents}/>
-        <Route path="inbox" component={InboxPage}/>
     </Router>,
     document.getElementById('root')
 );
