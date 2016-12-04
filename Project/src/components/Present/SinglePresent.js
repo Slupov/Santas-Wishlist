@@ -52,6 +52,23 @@ export default class SinglePresent extends Component {
                     Status:
                     {this.props.status}
                 </div>
+                <div className="presentActions">
+                    <img
+                        src={require('../../../images/approve.png')}
+                        alt="Green approve tick"
+                        style={{width:30,height:30}}
+                    />
+                    <img
+                        src={require('../../../images/reject.png')}
+                        alt="Red reject X"
+                        style={{width:30,height:30}}
+                    />
+                    <img
+                        src={require('../../../images/unknown.png')}
+                        alt="Yellow question mark"
+                        style={{width:26,height:26}}
+                    />
+                </div>
             </div>
         );
     }

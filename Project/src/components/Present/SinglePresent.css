@@ -21,3 +21,8 @@
 .presentTitle{
     text-align: center;
 }
+
+.presentActions{
+    margin: auto;
+    text-align: center;
+}
