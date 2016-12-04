@@ -11,6 +11,4 @@ function sendMailbox(data,callback) {
         .then(callback);
 }
 
-
-
 export {getMailboxes,sendMailbox}
