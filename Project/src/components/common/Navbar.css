@@ -4,8 +4,6 @@
     border-radius: 0px;
     display: inline-block;
     float:right;
-
-    position: absolute;
-    bottom: 0;
+    position:absolute;
 
 }

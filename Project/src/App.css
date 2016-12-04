@@ -1,6 +1,12 @@
 .App {
   text-align: center;
-  background-color: red;
+  background-image: url("../images/siteBackground.jpg");
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
 }
 
 .App-logo {
