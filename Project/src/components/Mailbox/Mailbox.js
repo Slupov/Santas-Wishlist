@@ -18,11 +18,18 @@ export default class Mailbox extends Component {
 
     bindEventHandlers() {
         this.updateState = this.updateState.bind(this);
+        this.mailOnClickHandler = this.mailOnClickHandler.bind(this);
     }
 
     updateState(response) {
         // Filter all mailboxes to the current user
         this.setState({mailboxes: response.filter(m => m.to === getCurrentUsername())});
+    }
+
+    mailOnClickHandler(m){
+        console.log(m.text)
+
+        //inser logic for drop down text info about current Mail
     }
 
     renderMails() {
@@ -34,6 +41,7 @@ export default class Mailbox extends Component {
                 to={m.to}
                 date={m.date}
                 text={m.text}
+                onClick={() => this.mailOnClickHandler(m)}
             />
         })
     }
