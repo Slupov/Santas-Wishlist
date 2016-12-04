@@ -1,0 +1,27 @@
+.box {
+    text-align: center;
+    margin:auto;
+    padding: 5%;
+    width: 100%;
+    height: 100%;
+    background-color: moccasin;
+    align-self:center;
+    border-radius: inherit;
+}
+
+.border{
+    border-radius: 15px;
+
+    margin:auto;
+    margin-top: 10px;
+    width: 30%;
+    height: 70%;
+    background-color: red;
+    align-self:center;
+    border: 3px dashed green;
+}
+.headerLogin{
+    color:  gold;
+    font-family: cursive;
+    font-size: 50px;
+}
