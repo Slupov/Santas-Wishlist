@@ -4,12 +4,12 @@ import {loadLetterDetails} from '../../models/letter';
 export default class LetterDetails extends Component {
     constructor(props) {
         super(props);
-        this.state ={
+        this.state = {
             _id: '',
             author: '',
             date: '',
-            title:'',
-            text:'',
+            title: '',
+            text: '',
 
         };
 
@@ -29,8 +29,8 @@ export default class LetterDetails extends Component {
             _id: response._id,
             author: response.author,
             date: response.date,
-            title:response.title,
-            text:response.text
+            title: response.title,
+            text: response.text
 
         };
 
@@ -46,15 +46,25 @@ export default class LetterDetails extends Component {
 
 
         return (
-            <div className="details-box">
-                <span className="titlebar">{title}</span>
-                <span className="spanner">Title</span>
-                <p>{this.state.title || 'No title'}</p>
-                <span className="spanner">Text</span>
-                <p>{this.state.text || 'No text'}</p>
-                <span className="spanner">Date</span>
-                <p>{this.state.date || 'No date'}</p>
-
+            <div className="border">
+                <div className="details-box">
+                    <div>
+                        <div className="spanName">Title</div>
+                        <div className="spanValue">{this.state.title || 'No title'}</div>
+                    </div>
+                    <div>
+                        <div className="spanName">From</div>
+                        <div className="spanValue">{this.state.author || 'No author'}</div>
+                    </div>
+                    <div>
+                        <div className="spanName">Text</div>
+                        <div className="spanValue">{this.state.text || 'No text'}</div>
+                    </div>
+                    <div>
+                        <div className="spanName">Date</div>
+                        <div className="spanValue">{this.state.date || 'No date'}</div>
+                    </div>
+                </div>
             </div>
         )
     }
