@@ -13,6 +13,14 @@ export default class SinglePresent extends Component {
             case "letterDetail":
                 sessionStorage.setItem('currentLetterId', this.props.letter_id);
                 break;
+            case "approve": //todo
+                break;
+            case "reject"://todo
+
+                break;
+            case "maybe":todo
+
+                break;
             default:
                 break;
         }
@@ -54,16 +62,22 @@ export default class SinglePresent extends Component {
                 </div>
                 <div className="presentActions">
                     <img
+                        name="approve"
+                        onClick={this.onChangeHandler}
                         src={require('../../../images/approve.png')}
                         alt="Green approve tick"
                         style={{width:30,height:30}}
                     />
                     <img
+                        name="reject"
+                        onClick={this.onChangeHandler}
                         src={require('../../../images/reject.png')}
                         alt="Red reject X"
                         style={{width:30,height:30}}
                     />
                     <img
+                        name="maybe"
+                        onClick={this.onChangeHandler}
                         src={require('../../../images/unknown.png')}
                         alt="Yellow question mark"
                         style={{width:26,height:26}}
