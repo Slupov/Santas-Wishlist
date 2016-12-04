@@ -14,7 +14,7 @@ function sendPresent(letter_id, name, username, senderEmail, callback) {
         .then(sendSuccess);
 
     function sendSuccess(response) {
-        observer.showSuccess('Successfully sent present.');
+        //alert("pdaryk pusnat!")
         callback(true);
     }
 }

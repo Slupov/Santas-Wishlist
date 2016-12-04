@@ -19,13 +19,14 @@ export default class LetterPage extends Component {
         };
         this.bindEventHandlers();
         sessionStorage.removeItem('letter_id');
+
     }
 
     bindEventHandlers() {
         // Make sure event handlers have the correct context
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.onSubmitHandler = this.onSubmitHandler.bind(this);
-        this.onSubmitResponse = this.onSubmitResponse.bind(this);
+        this.sendPresents = this.sendPresents.bind(this);
     }
 
     onChangeHandler(event) {
@@ -51,36 +52,26 @@ export default class LetterPage extends Component {
     }
 
     sendPresents() {
+        //alert("Puskam podarycite");
+
         sendPresent(getCurrentLetterId(), this.state.present1, getCurrentUsername(),getCurrentEmail());
-        sendPresent(getCurrentLetterId(), this.state.present2, getCurrentUsername(),getCurrentEmail());
+        sendPresent(getCurrentLetterId(), this.state.present1, getCurrentUsername(),getCurrentEmail());
         sendPresent(getCurrentLetterId(), this.state.present3, getCurrentUsername(),getCurrentEmail());
     }
 
     onSubmitHandler(event) {
         event.preventDefault();
         this.setState({submitDisabled: true});
+        sendLetter(getCurrentUsername(), this.state.title, this.state.text, getCurrentDate(), this.sendPresents);
 
-        //!!!SEND THE LETTER FIRST -> GET THE LETTER ID -> SEND THE PRESENTS
-        //sends the letter, gets its id
-        //then sends all presents with its id
-        sendLetter(getCurrentUsername(), this.state.title, this.state.text, getCurrentDate(), this.onSubmitResponse,this.sendPresents())
-    }
+        this.context.router.push('/');
 
-    onSubmitResponse(response) {
-        if (response === true) {
-            // Navigate away from create letter page
-            this.context.router.push('/');
-        } else {
-            // Something went wrong, let the user try again
-            this.setState({submitDisabled: true});
-        }
     }
 
     render() {
         return (
             <div>
                 <h1>Create Letter</h1>
-                {/*Give the Letter Form some props*/}
                 <LetterForm
                     title={this.state.title}
                     text={this.state.text}
