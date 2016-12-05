@@ -25,28 +25,28 @@ export default class Navbar extends Component {
     render() {
         if (!this.state.loggedIn) {
             return (
-                <div className="navbar">
-                    <Link to="/" className="btn btn-default" activeClassName="btn btn-default active"
+                <div className="navBar">
+                    <Link to="/" className="btn nav-btn-default" activeClassName="btn nav-btn-default active"
                           onlyActiveOnIndex={true}>Home</Link>
-                    <Link to="/about" className="btn btn-default" activeClassName="btn btn-default active">About</Link>
-                    <Link to="/login" className="btn btn-default" activeClassName="btn btn-default active">Login</Link>
-                    <Link to="/register" className="btn btn-default"
-                          activeClassName="btn btn-default active">Register</Link>
+                    <Link to="/about" className="btn nav-btn-default" activeClassName="btn nav-btn-default active">About</Link>
+                    <Link to="/login" className="btn nav-btn-default" activeClassName="btn nav-btn-default active">Login</Link>
+                    <Link to="/register" className="btn nav-btn-default"
+                          activeClassName="btn nav-btn-default active">Register</Link>
                 </div>
             );
         } else {
             return (
-                <div className="navbar">
+                <div className="navBar">
                     {sessionStorage.getItem('userType') === "child" &&
-                    <Link to="/letter" className="btn btn-default" activeClassName="btn btn-default active">Send
+                    <Link to="/letter" className="btn nav-btn-default" activeClassName="btn nav-btn-default active">Send
                         Letter</Link>
                     }
-                    <Link to="/about" className="btn btn-default" activeClassName="btn btn-default active">About</Link>
-                    <Link to="/logout" className="btn btn-default"
-                          activeClassName="btn btn-default active">Logout</Link>
-                    <Link to="/presents" className="btn btn-default" activeClassName="btn btn-default active">All
+                    <Link to="/about" className="btn nav-btn-default" activeClassName="btn nav-btn-default active">About</Link>
+                    <Link to="/logout" className="btn nav-btn-default"
+                          activeClassName="btn nav-btn-default active">Logout</Link>
+                    <Link to="/presents" className="btn nav-btn-default" activeClassName="btn nav-btn-default active">All
                         presents</Link>
-                    <Link to="/inbox" className="btn btn-default" activeClassName="btn btn-default active">My
+                    <Link to="/inbox" className="btn nav-btn-default" activeClassName="btn nav-btn-default active">My
                         Inbox</Link>
                 </div>
             );

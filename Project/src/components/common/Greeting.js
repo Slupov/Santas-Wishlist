@@ -6,7 +6,7 @@ export default class Greeting extends Component {
             return null;
         } else {
             return (
-                <span>Welcome, {sessionStorage.username}</span>
+                <span className="greeting">Welcome, {sessionStorage.username}</span>
             );
         }
     }

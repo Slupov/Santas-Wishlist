@@ -1,11 +1,24 @@
 .header{
-    background-color: yellow;
-    height:50px;
-    border:1px solid #CCC;
+    background-color: darkred;
+    height:7%;
+    border-bottom:3px dashed green;
     width:100%;
-    margin:0px;
-}
+    margin:0;
 
+}
+.greeting{
+    width: 20%;
+    float: left;
+    text-align: center;
+    color: #dd8032;
+    padding-top: 1%;
+}
 .header-title{
     float:left;
+    width: 20% ;
+    margin: 0;
+    padding: 1px;
+    font-size: 25px;
+    color: goldenrod;
 }
+

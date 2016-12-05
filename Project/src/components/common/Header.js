@@ -6,7 +6,7 @@ export default class Header extends Component {
     render() {
         return (
             <div className="header">
-                <h2 className="header-title">Santa's Wishlist</h2>
+                <div className="header-title">Santa's Wishlist</div>
                 <Greeting/>
                 <Navbar/>
                 {this.props.children}
