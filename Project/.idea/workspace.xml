@@ -21,17 +21,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Mail.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Mail.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Mail/Mail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+            <state relative-caret-position="378">
+              <caret line="20" column="34" lean-forward="false" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mailbox.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Mailbox.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Mailbox/Mailbox.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="309">
@@ -106,8 +106,8 @@
         <option value="$PROJECT_DIR$/src/components/Login/LoginForm.js" />
         <option value="$PROJECT_DIR$/src/components/Login/LoginPage.js" />
         <option value="$PROJECT_DIR$/src/components/Login/Login.css" />
-        <option value="$PROJECT_DIR$/src/components/Mail/Mail.js" />
         <option value="$PROJECT_DIR$/src/components/Mailbox/Mailbox.js" />
+        <option value="$PROJECT_DIR$/src/components/Mail/Mail.js" />
       </list>
     </option>
   </component>
@@ -379,12 +379,12 @@
       <workItem from="1480882277387" duration="3177000" />
       <workItem from="1480893287135" duration="1600000" />
       <workItem from="1480895280266" duration="211000" />
-      <workItem from="1480932916518" duration="6266000" />
+      <workItem from="1480932916518" duration="6437000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66362000" />
+    <option name="totallyTimeSpent" value="66533000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -716,14 +716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Mail/Mail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Mailbox/Mailbox.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
@@ -739,6 +731,14 @@
             <marker date="1480939229827" expanded="true" signature="2233:2544" ph="..." />
             <marker date="1480939229827" expanded="true" signature="2270:2503" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Mail/Mail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="20" column="34" lean-forward="false" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>

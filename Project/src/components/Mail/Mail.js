@@ -17,7 +17,9 @@ export default class Mail extends Component {
                     <td>{this.props.to}</td>
                     <td>{this.props.date}</td>
                 </tr>
-                <tr style={{display: `${this.state.showText}`}} className="message-text-row">{this.props.text}</tr>
+                <tr style={{display: `${this.state.showText}`}} className="message-text-row">
+                    <td colSpan="3">{this.props.text}</td>
+                </tr>
             </tbody>
         );
     }
