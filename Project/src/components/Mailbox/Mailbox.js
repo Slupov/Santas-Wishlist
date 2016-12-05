@@ -26,27 +26,34 @@ export default class Mailbox extends Component {
         this.setState({mailboxes: response.filter(m => m.to === getCurrentUsername())});
     }
 
-    mailOnClickHandler(m){
-        console.log(m.text)
-        let textRow =
-            <tr className="mail-text-row">
-                <td colspan="3">{m.text}</td>
-            </tr>;
-                
-        //inser logic for drop down text info about current Mail
-    }
+     mailOnClickHandler(m) {
+         console.log(m.text);
+         if(!sessionStorage.getItem(m._id) || sessionStorage.getItem(m._id) === undefined){
+             sessionStorage.setItem(m._id,'none')
+         }
+         else if(sessionStorage.getItem(m._id) === 'none'){
+             sessionStorage.setItem(m._id,'inline-block');
+         }else{
+             sessionStorage.setItem(m._id,'none');
+         }}
 
     renderMails() {
         return this.state.mailboxes.map((m, i) => {
+            if(!sessionStorage.getItem(m._id) || sessionStorage.getItem(m._id) === undefined){
+                sessionStorage.setItem(m._id,'none')
+            }
+
             return <Mail
                 key={i}
-                mailNumber={Number(i)+1}
+                mailNumber={Number(i) + 1}
                 from={m.from}
                 to={m.to}
                 date={m.date}
                 text={m.text}
                 onClick={() => this.mailOnClickHandler(m)}
+                showText={sessionStorage.getItem(m._id)}
             />
+
         })
     }
 
@@ -66,9 +73,7 @@ export default class Mailbox extends Component {
                                     <th>Date</th>
                                 </tr>
                                 </thead>
-                                <tbody>
                                 {this.renderMails()}
-                                </tbody>
                             </table>
                         </div>
                     </div>
