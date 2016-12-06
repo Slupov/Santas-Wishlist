@@ -11,6 +11,7 @@ export default class Mailbox extends Component {
         super(props);
         this.state = {
             mailboxes: []
+
         };
         this.bindEventHandlers();
         getMailboxes(this.updateState);
@@ -26,23 +27,22 @@ export default class Mailbox extends Component {
         this.setState({mailboxes: response.filter(m => m.to === getCurrentUsername())});
     }
 
-     mailOnClickHandler(m) {
-         console.log(m.text);
-         if(!sessionStorage.getItem(m._id) || sessionStorage.getItem(m._id) === undefined){
-             sessionStorage.setItem(m._id,'none')
-         }
-         else if(sessionStorage.getItem(m._id) === 'none'){
-             sessionStorage.setItem(m._id,'inline-block');
-         }else{
-             sessionStorage.setItem(m._id,'none');
-         }}
+    mailOnClickHandler(m) {
+        if (this.state[m._id] === undefined || this.state[m._id] === null || !this.state[m._id]) {
+            this.setState({[m._id]: 'none'});
+        }
+        else if (this.state[m._id] === 'none') {
+            this.setState({[m._id]: 'inline-block'});
+        } else {
+            this.setState({[m._id]: 'none'});
+        }
+    }
 
     renderMails() {
         return this.state.mailboxes.map((m, i) => {
-            if(!sessionStorage.getItem(m._id) || sessionStorage.getItem(m._id) === undefined){
-                sessionStorage.setItem(m._id,'none')
+            if (!this.state[m._id] || this.state[m._id] === undefined || this.state[m._id] === null) {
+                this.setState({[m._id]: 'none'});
             }
-
             return <Mail
                 key={i}
                 mailNumber={Number(i) + 1}
@@ -51,11 +51,42 @@ export default class Mailbox extends Component {
                 date={m.date}
                 text={m.text}
                 onClick={() => this.mailOnClickHandler(m)}
-                showText={sessionStorage.getItem(m._id)}
+                showText={this.state[m._id]}
             />
-
         })
     }
+
+
+    // mailOnClickHandler(m) {
+    //     console.log(m.text);
+    //     if (!sessionStorage.getItem(m._id) || sessionStorage.getItem(m._id) === undefined) {
+    //         sessionStorage.setItem(m._id, 'none');
+    //     }
+    //     else if (sessionStorage.getItem(m._id) === 'none') {
+    //         sessionStorage.setItem(m._id, 'inline-block');
+    //     } else {
+    //         sessionStorage.setItem(m._id, 'none');
+    //     }
+    // }
+
+    // renderMails() {
+    //     return this.state.mailboxes.map((m, i) => {
+    //         if (!sessionStorage.getItem(m._id) || sessionStorage.getItem(m._id) === undefined) {
+    //             sessionStorage.setItem(m._id, 'none')
+    //         }
+    //         return <Mail
+    //             key={i}
+    //             mailNumber={Number(i) + 1}
+    //             from={m.from}
+    //             to={m.to}
+    //             date={m.date}
+    //             text={m.text}
+    //             onClick={() => this.mailOnClickHandler(m)}
+    //             showText={sessionStorage.getItem(m._id)}
+    //         />
+    //
+    //     })
+    // }
 
     render() {
         return (
