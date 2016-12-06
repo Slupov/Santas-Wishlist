@@ -37,17 +37,19 @@ export default class Navbar extends Component {
         } else {
             return (
                 <div className="navBar">
+                    <Link to="/" className="btn nav-btn-default" activeClassName="btn nav-btn-default active"
+                          onlyActiveOnIndex={true}>Home</Link>
                     {sessionStorage.getItem('userType') === "child" &&
                     <Link to="/letter" className="btn nav-btn-default" activeClassName="btn nav-btn-default active">Send
                         Letter</Link>
                     }
-                    <Link to="/about" className="btn nav-btn-default" activeClassName="btn nav-btn-default active">About</Link>
-                    <Link to="/logout" className="btn nav-btn-default"
-                          activeClassName="btn nav-btn-default active">Logout</Link>
                     <Link to="/presents" className="btn nav-btn-default" activeClassName="btn nav-btn-default active">All
                         presents</Link>
                     <Link to="/inbox" className="btn nav-btn-default" activeClassName="btn nav-btn-default active">My
                         Inbox</Link>
+                    <Link to="/about" className="btn nav-btn-default" activeClassName="btn nav-btn-default active">About</Link>
+                    <Link to="/logout" className="btn nav-btn-default"
+                          activeClassName="btn nav-btn-default active">Logout</Link>
                 </div>
             );
         }

@@ -7,8 +7,8 @@ class App extends Component {
         return (
             <div className="App">
                 <Header/>
-                {this.props.children}
                 <Infobox/>
+                {this.props.children}
             </div>
         )
     }
