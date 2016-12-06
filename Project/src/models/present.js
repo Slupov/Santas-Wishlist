@@ -1,4 +1,4 @@
-import {get, post, update} from './requester';
+import {get, post, update, _delete} from './requester';
 
 function sendPresent(letter_id, name, username, senderEmail, callback) {
     let presentData = {
@@ -26,6 +26,10 @@ function getPresent(presentID) {
     return get('appdata', 'presents/' + presentID, 'kinvey');
 }
 
+function deletePresent(presentID) {
+    return _delete('appdata', 'presents/' + presentID, 'kinvey');
+}
+
 function updatePresentStatus(id, status) {
     getPresent(id)
         .then(function (response) {
@@ -47,4 +51,4 @@ function checkStatus(props) {
     return showActions;
 }
 
-export {sendPresent, getPresents, updatePresentStatus, checkStatus}
+export {sendPresent, getPresents, updatePresentStatus, checkStatus,deletePresent}

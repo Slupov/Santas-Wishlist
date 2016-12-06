@@ -20,7 +20,6 @@ export default class LetterPage extends Component {
         };
         this.bindEventHandlers();
         sessionStorage.removeItem('letter_id');
-
     }
 
     bindEventHandlers() {
@@ -53,8 +52,6 @@ export default class LetterPage extends Component {
     }
 
     sendPresents() {
-        //alert("Puskam podarycite");
-
         sendPresent(getCurrentLetterId(), this.state.present1, getCurrentUsername(),getCurrentEmail());
         sendPresent(getCurrentLetterId(), this.state.present2, getCurrentUsername(),getCurrentEmail());
         sendPresent(getCurrentLetterId(), this.state.present3, getCurrentUsername(),getCurrentEmail());

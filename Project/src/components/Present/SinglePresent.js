@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../Present/SinglePresent.css'
 import {Link} from 'react-router';
-import {updatePresentStatus, checkStatus} from '../../models/present';
+import {updatePresentStatus, checkStatus,deletePresent} from '../../models/present';
 import {sendMailbox} from '../../models/mailbox'
 import {getCurrentDate} from '../../utilities'
 
@@ -11,7 +11,8 @@ export default class SinglePresent extends Component {
         super(props);
         this.state = {
             showActions: checkStatus(this.props),
-            status: this.props.status
+            status: this.props.status,
+            displayStatus: ''
         };
         this.bindEventHandlers();
     }
@@ -22,6 +23,7 @@ export default class SinglePresent extends Component {
         this.approve = this.approve.bind(this);
         this.reject = this.reject.bind(this);
         this.maybe = this.maybe.bind(this);
+        this.remove = this.remove.bind(this);
     }
 
     approve() {
@@ -76,6 +78,23 @@ export default class SinglePresent extends Component {
         sendMailbox(data)
     }
 
+    remove(){
+        deletePresent(this.props.present_id);
+        this.setState({displayStatus: 'none'});
+
+        let mailText = `Yo, ${this.props.username},your  ${this.props.name} present was deleted from our database.
+Just sayin if you wanted to send another letter ;)`;
+
+        let data = {
+            to: this.props.username,
+            from: "Elves Support",
+            text: mailText,
+            date: getCurrentDate()
+        };
+
+        sendMailbox(data)
+    }
+
     onChangeHandler(event) {
         switch (event.target.name) {
             case "letterDetail":
@@ -96,11 +115,9 @@ export default class SinglePresent extends Component {
         }
     }
 
-
     render() {
-
         return (
-            <div className="col-sm-2">
+            <div className="col-sm-2" style={{display:this.state.displayStatus}}>
                 <div className="presentImage">
                     <img
                         src={require('../../../images/gift.png')}
@@ -148,6 +165,14 @@ export default class SinglePresent extends Component {
                         style={{width: 26, height: 26}}
                     />
                 </div>
+                {/*Replace actions div with a action component*/}
+                <input
+                    type="button"
+                    className="btn btn-default"
+                    style={{display: this.props.senderEmail === sessionStorage.getItem('email') ? 'block' : 'none'}}
+                    value={"Delete"}
+                    onClick={this.remove}
+                />
             </div>
         );
     }

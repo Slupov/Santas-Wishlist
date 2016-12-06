@@ -48,6 +48,8 @@ export default class PresentPage extends Component {
     componentDidMount() {
         // Request list of presents from the server
         getPresents(this.onLoadSuccess);
+        $('#allKidsBtn').prop('disabled', true);
+
     }
 
     getContent() {
@@ -76,10 +78,10 @@ export default class PresentPage extends Component {
                 />
             })
         }
-
     }
 
     render() {
+
         return (
             <div className="container">
                 <h1>Children's presents!</h1>
