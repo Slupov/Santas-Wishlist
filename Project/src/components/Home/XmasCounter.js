@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
+import ReactTimeout from 'react-timeout'
 
-export default class XmasCounter extends Component {
+class XmasCounter extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,7 +16,6 @@ export default class XmasCounter extends Component {
     }
 
     countdown(yr, m, d) {
-        console.log("test");
         // let theyear = yr;
         // let themonth = m;
         // let theday = d;
@@ -40,10 +40,10 @@ export default class XmasCounter extends Component {
         //difference between today and future date
         let dd = Date.parse(futurestring) - Date.parse(todaystring);
 
-        let dday = Math.floor(dd / (60 * 60 * 1000 * 24) * 1);
-        let dhour = Math.floor((dd % (60 * 60 * 1000 * 24)) / (60 * 60 * 1000) * 1);
-        let dmin = Math.floor(((dd % (60 * 60 * 1000 * 24)) % (60 * 60 * 1000)) / (60 * 1000) * 1);
-        let dsec = Math.floor((((dd % (60 * 60 * 1000 * 24)) % (60 * 60 * 1000)) % (60 * 1000)) / 1000 * 1);
+        let dday = Math.floor(dd / (60 * 60 * 1000 * 24));
+        let dhour = Math.floor((dd % (60 * 60 * 1000 * 24)) / (60 * 60 * 1000));
+        let dmin = Math.floor(((dd % (60 * 60 * 1000 * 24)) % (60 * 60 * 1000)) / (60 * 1000));
+        let dsec = Math.floor((((dd % (60 * 60 * 1000 * 24)) % (60 * 60 * 1000)) % (60 * 1000)) / 1000);
 
         this.setState({
             days: dday,
@@ -52,9 +52,11 @@ export default class XmasCounter extends Component {
             seconds: dsec
         });
 
+        setInterval(() => this.countdown(2016,12,25), 1000)
     }
-    componentDidMount() {
-        setTimeout(this.countdown(2016,12,25), 1000)
+
+    componentDidMount(){
+        this.countdown(2016,12,25);
     }
 
     render() {
@@ -70,4 +72,6 @@ export default class XmasCounter extends Component {
     }
 
 }
+
+export default ReactTimeout(XmasCounter);
 
