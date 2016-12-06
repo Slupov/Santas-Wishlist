@@ -17,6 +17,7 @@ import InboxPage from './components/Mailbox/Mailbox';
 import '../src/App.css'
 import './components/common/Navbar.css'
 import './components/common/Header.css'
+import './components/Mailbox/Mailbox.css'
 
 ReactDOM.render(
     <Router history={browserHistory}>

@@ -76,7 +76,6 @@ export default class PresentPage extends Component {
                 />
             })
         }
-
     }
 
     render() {

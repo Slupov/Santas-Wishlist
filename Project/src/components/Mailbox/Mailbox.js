@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Mail from '../Mail/Mail';
+import Mail from './Mail/Mail';
 import './Mailbox.css'
 import {getCurrentUsername} from '../../utilities'
 import {getMailboxes} from '../../models/mailbox';
@@ -51,42 +51,10 @@ export default class Mailbox extends Component {
                 date={m.date}
                 text={m.text}
                 onClick={() => this.mailOnClickHandler(m)}
-                showText={this.state[m._id]}
+                displayStatus={this.state[m._id]}
             />
         })
     }
-
-
-    // mailOnClickHandler(m) {
-    //     console.log(m.text);
-    //     if (!sessionStorage.getItem(m._id) || sessionStorage.getItem(m._id) === undefined) {
-    //         sessionStorage.setItem(m._id, 'none');
-    //     }
-    //     else if (sessionStorage.getItem(m._id) === 'none') {
-    //         sessionStorage.setItem(m._id, 'inline-block');
-    //     } else {
-    //         sessionStorage.setItem(m._id, 'none');
-    //     }
-    // }
-
-    // renderMails() {
-    //     return this.state.mailboxes.map((m, i) => {
-    //         if (!sessionStorage.getItem(m._id) || sessionStorage.getItem(m._id) === undefined) {
-    //             sessionStorage.setItem(m._id, 'none')
-    //         }
-    //         return <Mail
-    //             key={i}
-    //             mailNumber={Number(i) + 1}
-    //             from={m.from}
-    //             to={m.to}
-    //             date={m.date}
-    //             text={m.text}
-    //             onClick={() => this.mailOnClickHandler(m)}
-    //             showText={sessionStorage.getItem(m._id)}
-    //         />
-    //
-    //     })
-    // }
 
     render() {
         return (
@@ -96,14 +64,14 @@ export default class Mailbox extends Component {
                     <div className="panel panel-default">
                         <div className="panel-body">
                             <table className="table table-inverse">
-                                <thead>
+                                <tbody>
                                 <tr>
-                                    <th>#</th>
-                                    <th>From</th>
-                                    <th>To</th>
-                                    <th>Date</th>
+                                    <th><b>#</b></th>
+                                    <td><b>From</b></td>
+                                    <td><b>To</b></td>
+                                    <td><b>Date</b></td>
                                 </tr>
-                                </thead>
+                                </tbody>
                                 {this.renderMails()}
                             </table>
                         </div>
