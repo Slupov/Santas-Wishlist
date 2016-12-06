@@ -15,10 +15,11 @@
     margin:auto;
     margin-top: 10px;
     width: 30%;
-    height: 70%;
+    height: 65%;
     background-color: red;
     align-self:center;
     border: 3px dashed green;
+
 }
 .form-header{
     color:  gold;

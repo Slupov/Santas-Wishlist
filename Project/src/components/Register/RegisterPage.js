@@ -11,8 +11,10 @@ export default class RegisterPage extends Component {
             password: '',
             repeat: '',
             email: '',
+            parentEmail:'',
             type: 'child',
             address: '',
+            gender:"boy",
             submitDisabled: false,
             validPassword: false,
             validUsername:false
@@ -60,8 +62,15 @@ export default class RegisterPage extends Component {
 
                 this.setState({email: event.target.value});
                 break;
+            case 'parentEmail':
+
+                this.setState({parentEmail: event.target.value});
+                break;
             case 'type':
                 this.setState({type: event.target.value});
+                break;
+            case 'gender':
+                this.setState({gender: event.target.value});
                 break;
             case 'address':
                 this.setState({address: event.target.value});
@@ -91,8 +100,12 @@ export default class RegisterPage extends Component {
 
             return;
         }
+        if (!emailValidation(this.state.parentEmail)) {
+            alert("Email doesn't match the requirements");
 
-        register(this.state.username, this.state.password, this.state.email, this.state.type, this.state.address, this.onSubmitResponse);
+            return;
+        }
+        register(this.state.username, this.state.password, this.state.email,this.state.parentEmail, this.state.type, this.state.address,this.state.gender, this.onSubmitResponse);
     }
 
     onSubmitResponse(response) {
@@ -106,23 +119,27 @@ export default class RegisterPage extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <h1 className="form-header">Register Page</h1>
-                <RegisterForm
-                    username={this.state.username}
-                    password={this.state.password}
-                    repeat={this.state.repeat}
-                    email={this.state.email}
-                    type={this.state.type}
-                    address={this.state.address}
-                    submitDisabled={this.state.submitDisabled}
-                    onChangeHandler={this.onChangeHandler}
-                    onSubmitHandler={this.onSubmitHandler}
-                />
-            </div>
-        );
-    }
+
+            return (
+                <div>
+                    <h1 className="form-header">Register Page</h1>
+                    <RegisterForm
+                        username={this.state.username}
+                        password={this.state.password}
+                        repeat={this.state.repeat}
+                        parentEmail={this.state.parentEmail}
+                        email={this.state.email}
+                        type={this.state.type}
+                        address={this.state.address}
+                        gender={this.state.gender}
+                        submitDisabled={this.state.submitDisabled}
+                        onChangeHandler={this.onChangeHandler}
+                        onSubmitHandler={this.onSubmitHandler}
+                    />
+                </div>
+            );
+        }
+
 }
 
 RegisterPage.contextTypes = {

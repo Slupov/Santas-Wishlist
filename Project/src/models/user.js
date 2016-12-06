@@ -22,7 +22,8 @@ function saveSession(userInfo) {
     sessionStorage.setItem('userType',userType);
     let userEmail = userInfo.email;
     sessionStorage.setItem('email',userEmail);
-
+    let parentEmail = userInfo.parentEmail;
+    sessionStorage.setItem('email',parentEmail);
 
     observer.onSessionUpdate();
 }
@@ -45,13 +46,15 @@ function login(username, password, callback) {
 }
 
 // user/register
-function register(username, password, email,type,address,callback) {
+function register(username, password, email,parentEmail,type,address,gender,callback) {
     let userData = {
         username,
         password,
         email,
+        parentEmail,
         type,
-        address
+        address,
+        gender
     };
 
     requester.post('user', '', userData, 'basic')
