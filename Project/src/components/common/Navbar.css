@@ -7,8 +7,11 @@ width:60%;
 
 
 }
+
 .nav-btn-default{
- -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-size:20px;font-family:courier new, courier, monospace; padding: 4px 10px 4px 10px; text-decoration:none; display:inline-block;font-weight:bold; color: #FFD014;
+    height: 100%;
+    text-align:center;
+ -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-size:20px;font-family:courier new, courier, monospace; padding-top: 1% ; padding-bottom: 2%; text-decoration:none; display:inline-block;font-weight:bold; color: #FFD014;
     background-color: #a90329; background-image: -webkit-gradient(linear, left top, left bottom, from(#a90329), to(#6d0019));
     background-image: -webkit-linear-gradient(top, #a90329, #6d0019);
     background-image: -moz-linear-gradient(top, #a90329, #6d0019);

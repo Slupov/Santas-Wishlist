@@ -19,6 +19,7 @@ import './components/common/Navbar.css'
 import './components/common/Header.css'
 import './components/Mailbox/Mailbox.css'
 import './components/About/AboutPage.css'
+import './components/Home/HomePage.css'
 
 ReactDOM.render(
     <Router history={browserHistory}>

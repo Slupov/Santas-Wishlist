@@ -9,6 +9,7 @@
     "bootstrap": "^3.3.7",
     "jquery": "^3.1.1",
     "react": "^15.4.1",
+    "react-cntdwn": "^0.3.0",
     "react-dom": "^15.4.1",
     "react-router": "^3.0.0",
     "react-timeout": "^1.0.0"
