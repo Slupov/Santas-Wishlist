@@ -1,5 +1,10 @@
 .header{
-    background-color: darkred;
+    background-color: #a90329; background-image: -webkit-gradient(linear, left top, left bottom, from(#a90329), to(#6d0019));
+    background-image: -webkit-linear-gradient(top, #a90329, #6d0019);
+    background-image: -moz-linear-gradient(top, #a90329, #6d0019);
+    background-image: -ms-linear-gradient(top, #a90329, #6d0019);
+    background-image: -o-linear-gradient(top, #a90329, #6d0019);
+    background-image: linear-gradient(to bottom, #a90329, #6d0019);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#a90329, endColorstr=#6d0019);
     height:7%;
     border-bottom:3px dashed green;
     width:100%;

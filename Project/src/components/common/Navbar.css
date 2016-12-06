@@ -1,6 +1,11 @@
 .navBar{
     text-align: center;
-    background-color:darkred;
+    background-color: #a90329; background-image: -webkit-gradient(linear, left top, left bottom, from(#a90329), to(#6d0019));
+    background-image: -webkit-linear-gradient(top, #a90329, #6d0019);
+    background-image: -moz-linear-gradient(top, #a90329, #6d0019);
+    background-image: -ms-linear-gradient(top, #a90329, #6d0019);
+    background-image: -o-linear-gradient(top, #a90329, #6d0019);
+    background-image: linear-gradient(to bottom, #a90329, #6d0019);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#a90329, endColorstr=#6d0019);
 height: 100%;
     display: inline-block;
 width:60%;
@@ -29,13 +34,12 @@ width:60%;
     background-image: -o-linear-gradient(top, #77021d, #3a000d);
     background-image: linear-gradient(to bottom, #77021d, #3a000d);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#77021d, endColorstr=#3a000d);
 }
-.nav-btn-default:active{
+.nav-btn-default.active{
     color: #FFD014;
-    -webkit-box-shadow: #FFFFFF 0px 0px 1px inset;-moz-box-shadow: #FFFFFF 0px 0px 1px inset; box-shadow: #FFFFFF 0px 0px 1px inset; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-size:20px;font-family:courier new, courier, monospace; padding: 4px 10px 4px 10px; text-decoration:none; display:inline-block;font-weight:bold; color: #FFD014;
-    background-color: #a90329; background-image: -webkit-gradient(linear, left top, left bottom, from(#a90329), to(#6d0019));
-    background-image: -webkit-linear-gradient(top, #a90329, #6d0019);
-    background-image: -moz-linear-gradient(top, #a90329, #6d0019);
-    background-image: -ms-linear-gradient(top, #a90329, #6d0019);
-    background-image: -o-linear-gradient(top, #a90329, #6d0019);
-    background-image: linear-gradient(to bottom, #a90329, #6d0019);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#a90329, endColorstr=#6d0019);
+    background-color: #C4032F; background-image: -webkit-gradient(linear, left top, left bottom, from(#C4032F), to(#73001A));
+    background-image: -webkit-linear-gradient(top, #C4032F, #73001A);
+    background-image: -moz-linear-gradient(top, #C4032F, #73001A);
+    background-image: -ms-linear-gradient(top, #C4032F, #73001A);
+    background-image: -o-linear-gradient(top, #C4032F, #73001A);
+    background-image: linear-gradient(to bottom, #C4032F, #73001A);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#C4032F, endColorstr=#73001A);
 }

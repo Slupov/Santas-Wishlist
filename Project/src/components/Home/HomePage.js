@@ -9,7 +9,6 @@ export default class HomePage extends Component {
     render() {
         return (
             <div className="HomePage">
-
                 <Countdown targetDate={new Date('December 25, 2016')}
 
                            interval={1000}
