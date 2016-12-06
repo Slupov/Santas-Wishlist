@@ -1,6 +1,15 @@
 import * as requester from './requester';
 import observer from './observer';
 
+function handleAjaxError(response) {
+    let errorMsg = JSON.stringify(response);
+    if (response.readyState === 0)
+        errorMsg = "Cannot connect due to network error.";
+    if (response.responseJSON &&
+        response.responseJSON.description)
+        errorMsg = response.responseJSON.description;
+    observer.showError(errorMsg);
+}
 
 function saveSession(userInfo) {
     let userAuth = userInfo._kmd.authtoken;
@@ -26,7 +35,8 @@ function login(username, password, callback) {
     };
 
     requester.post('user', 'login', userData, 'basic')
-        .then(loginSuccess);
+        .then(loginSuccess)
+        .catch(handleAjaxError);
 
     function loginSuccess(userInfo) {
         saveSession(userInfo);
@@ -45,7 +55,8 @@ function register(username, password, email,type,address,callback) {
     };
 
     requester.post('user', '', userData, 'basic')
-        .then(registerSuccess);
+        .then(registerSuccess)
+        .catch(handleAjaxError);
 
     function registerSuccess(userInfo) {
         observer.showSuccess('Successful registration.');
@@ -57,7 +68,9 @@ function register(username, password, email,type,address,callback) {
 // user/logout
 function logout(callback) {
     requester.post('user', '_logout', null, 'kinvey')
-        .then(logoutSuccess);
+        .then(logoutSuccess)
+        .catch(handleAjaxError);
+
 
 
     function logoutSuccess(response) {
