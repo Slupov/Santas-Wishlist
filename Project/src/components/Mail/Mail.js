@@ -2,13 +2,7 @@ import React, {Component} from 'react';
 
 //a mail will be a table row
 export default class Mail extends Component {
-    constructor(props){
-        super(props);
-        this.state={
-            showText: this.props.showText
-        }
-    }
-    render() {
+     render() {
         return (
             <tbody>
                 <tr onClick={this.props.onClick}>
@@ -17,7 +11,7 @@ export default class Mail extends Component {
                     <td>{this.props.to}</td>
                     <td>{this.props.date}</td>
                 </tr>
-                <tr style={{display: `${this.state.showText}`}} className="message-text-row">
+                <tr style={{display: `${this.props.showText}`}} className="message-text-row">
                     <td colSpan="3">{this.props.text}</td>
                 </tr>
             </tbody>
