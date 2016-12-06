@@ -48,7 +48,7 @@ export default class LoginPage extends Component {
     render() {
         return (
             <div>
-                <h1 className="headerLogin">Login Page</h1>
+                <h1 className="form-header">Login Page</h1>
                 <LoginForm
                     username={this.state.username}
                     password={this.state.password}
