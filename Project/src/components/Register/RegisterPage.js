@@ -88,9 +88,10 @@ export default class RegisterPage extends Component {
         }
         if (!emailValidation(this.state.email)) {
             alert("Email doesn't match the requirements");
+
             return;
         }
-        this.setState({submitDisabled: true});
+
         register(this.state.username, this.state.password, this.state.email, this.state.type, this.state.address, this.onSubmitResponse);
     }
 
@@ -100,8 +101,7 @@ export default class RegisterPage extends Component {
             this.context.router.push('/');
         } else {
             // Something went wrong, let the user try again
-           alert();
-            this.setState({submitDisabled: true});
+
         }
     }
 

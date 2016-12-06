@@ -67,10 +67,11 @@ function register(username, password, email,type,address,callback) {
 
 // user/logout
 function logout(callback) {
-    requester.post('user', '_logout', null, 'kinvey')
-        .then(logoutSuccess)
-        .catch(handleAjaxError);
-
+    if(confirm("Are you sure you want to logout? Santaw ill miss you!")){
+        requester.post('user', '_logout', null, 'kinvey')
+            .then(logoutSuccess)
+            .catch(handleAjaxError);
+    }
 
 
     function logoutSuccess(response) {
