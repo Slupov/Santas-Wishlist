@@ -34,7 +34,7 @@ export default class SinglePresent extends Component {
         this.setState({showActions: false});
 
         let mailText = `Hohoho,\nDear ${this.props.username}, I heard you've been a good child this year`+
-                        `so I definately think you deserve that present: ${this.props.name}`
+            `so I definately think you deserve that present: ${this.props.name}`
 
         let data = {
             to: this.props.username,
