@@ -5,22 +5,19 @@ export default class Mail extends Component {
     render() {
         let activeClassName = '';
 
-        if (this.props.displayStatus === 'inline-block') {
-            activeClassName = 'active-mail';
+        if (this.props.displayStatus === 'block') {
+            activeClassName = 'div-table-row';
         }
 
         return (
-            <tbody>
-            <tr onClick={this.props.onClick}>
-                <th scope="row">{this.props.mailNumber}</th>
-                <td>{this.props.from}</td>
-                <td>{this.props.to}</td>
-                <td>{this.props.date}</td>
-            </tr>
-            <tr style={{display: `${this.props.displayStatus}`}} className={activeClassName}>
-                <td>{this.props.text}</td>
-            </tr>
-            </tbody>
+            <div className="div-table-row" onClick={this.props.onClick}>
+                <div className="div-table-col">{this.props.mailNumber}</div>
+                <div className="div-table-col">{this.props.from}</div>
+                <div className="div-table-col">{this.props.to}</div>
+                <div className="div-table-col">{this.props.date}</div>
+                <div className={activeClassName + " active-mail"}
+                     style={{display: `${this.props.displayStatus}`}}>{this.props.text}</div>
+            </div>
         );
     }
 }

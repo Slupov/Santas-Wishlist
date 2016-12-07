@@ -23,7 +23,7 @@ function saveSession(userInfo) {
     let userEmail = userInfo.email;
     sessionStorage.setItem('email',userEmail);
     let parentEmail = userInfo.parentEmail;
-    sessionStorage.setItem('email',parentEmail);
+    sessionStorage.setItem('parentEmail',parentEmail);
 
     observer.onSessionUpdate();
 }

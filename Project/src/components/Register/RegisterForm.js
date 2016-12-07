@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import '../Register/RegisterForm.css'
 
 export default class RegisterForm extends Component {
-
     render() {
         return (
             <div className="border">
@@ -41,6 +40,17 @@ export default class RegisterForm extends Component {
                         />
                     </div>
                     <div className="form-group">
+                        <label>Email:</label>
+                        <input
+                            className="form-control"
+                            type="text"
+                            name="email"
+                            value={this.props.email}
+                            disabled={this.props.submitDisabled}
+                            onChange={this.props.onChangeHandler}
+                        />
+                    </div>
+                    <div className="form-group">
                         <label>I am:</label>
                         <select
                             className="form-control "
@@ -54,33 +64,6 @@ export default class RegisterForm extends Component {
 
                         </select>
                     </div>
-
-                    <div className="form-group">
-                        <label>Email:</label>
-                        <input
-                            className="form-control"
-                            type="text"
-                            name="email"
-                            value={this.props.email}
-                            disabled={this.props.submitDisabled}
-                            onChange={this.props.onChangeHandler}
-
-                        />
-                    </div>
-                    <div style={{
-                        display: this.props.type === 'child' ? 'block' : 'none',
-                        display: this.props.type === 'parent' ? 'none' : 'block'
-                    }} className="form-group">
-                        <label>Parent email:</label>
-                        <input
-                            className="form-control"
-                            type="text"
-                            name="parentEmail"
-                            value={this.props.parentEmail}
-                            disabled={this.props.submitDisabled}
-                            onChange={this.props.onChangeHandler}
-                        />
-                    </div>
                     <div className="form-group">
                         <label>Address:</label>
                         <input
@@ -92,25 +75,6 @@ export default class RegisterForm extends Component {
                             disabled={this.props.submitDisabled}
                             onChange={this.props.onChangeHandler}
                         />
-                    </div>
-                    <div style={{
-                        display: this.props.type === 'child' ? 'block' : 'none',
-                        display: this.props.type === 'parent' ? 'none' : 'block'
-                    }} className="form-group">
-                        <label>I am:</label>
-                        <select
-                            className="form-control "
-                            name="gender"
-                            value={this.props.gender}
-                            disabled={this.props.submitDisabled}
-                            onChange={this.props.onChangeHandler}
-                        >
-                            <option defaultValue="boy">Boy</option>
-                            <option value="girl">Girl</option>
-                            <option value="undefined">Special Snowflake</option>
-
-
-                        </select>
                     </div>
                     <input className="btn btn-default" type="submit" value="Register"
                            disabled={this.props.submitDisabled}/>
