@@ -24,8 +24,8 @@
       <file leaf-file-name="PresentPage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Present/PresentPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="117" column="1" lean-forward="false" selection-start-line="117" selection-start-column="1" selection-end-line="117" selection-end-column="1" />
+            <state relative-caret-position="490">
+              <caret line="104" column="30" lean-forward="true" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -64,7 +64,7 @@
       <file leaf-file-name="SinglePresent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Present/SinglePresent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
+            <state relative-caret-position="1057">
               <caret line="170" column="22" lean-forward="true" selection-start-line="170" selection-start-column="22" selection-end-line="170" selection-end-column="22" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -92,24 +92,26 @@
       <file leaf-file-name="RegisterForm.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Register/RegisterForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
+            <state relative-caret-position="1759">
               <caret line="74" column="30" lean-forward="true" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegisterPage.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RegisterPage.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Register/RegisterPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1890">
-              <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-              <folding />
+            <state relative-caret-position="-2820">
+              <caret line="46" column="18" lean-forward="false" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="43" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mailbox.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Mailbox.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Mailbox/Mailbox.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="405">
@@ -177,11 +179,11 @@
         <option value="$PROJECT_DIR$/src/components/Letter/LetterForm.js" />
         <option value="$PROJECT_DIR$/src/components/Home/HomePage.css" />
         <option value="$PROJECT_DIR$/src/components/Home/HomePage.js" />
-        <option value="$PROJECT_DIR$/src/components/Register/RegisterPage.js" />
         <option value="$PROJECT_DIR$/src/components/Present/SinglePresent.css" />
         <option value="$PROJECT_DIR$/src/components/Present/PresentPage.js" />
         <option value="$PROJECT_DIR$/src/components/Present/SinglePresent.js" />
         <option value="$PROJECT_DIR$/src/components/Mailbox/Mailbox.css" />
+        <option value="$PROJECT_DIR$/src/components/Register/RegisterPage.js" />
       </list>
     </option>
   </component>
@@ -552,12 +554,12 @@
       <workItem from="1481020033217" duration="80000" />
       <workItem from="1481031287043" duration="13679000" />
       <workItem from="1481069231702" duration="5774000" />
-      <workItem from="1481101511437" duration="1936000" />
+      <workItem from="1481101511437" duration="2821000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105693000" />
+    <option name="totallyTimeSpent" value="106578000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1916" height="1038" extended-state="0" />
@@ -750,6 +752,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -860,22 +863,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Register/RegisterForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="74" column="30" lean-forward="true" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Register/RegisterPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1890">
-          <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Letter/LetterDetails.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -884,17 +871,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Present/PresentPage.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Mailbox/Mailbox.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="117" column="1" lean-forward="false" selection-start-line="117" selection-start-column="1" selection-end-line="117" selection-end-column="1" />
+        <state relative-caret-position="405">
+          <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Present/SinglePresent.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="10" lean-forward="false" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Present/SinglePresent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
+        <state relative-caret-position="1057">
           <caret line="170" column="22" lean-forward="true" selection-start-line="170" selection-start-column="22" selection-end-line="170" selection-end-column="22" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
@@ -908,19 +903,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Present/SinglePresent.css">
+    <entry file="file://$PROJECT_DIR$/src/components/Present/PresentPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="10" lean-forward="false" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        <state relative-caret-position="490">
+          <caret line="104" column="30" lean-forward="true" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Mailbox/Mailbox.css">
+    <entry file="file://$PROJECT_DIR$/src/components/Register/RegisterForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+        <state relative-caret-position="1759">
+          <caret line="74" column="30" lean-forward="true" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Register/RegisterPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2820">
+          <caret line="46" column="18" lean-forward="false" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

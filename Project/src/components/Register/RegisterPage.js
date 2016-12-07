@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import RegisterForm from './RegisterForm';
 import {register} from '../../models/user';
+import $ from 'jquery'
 import {observer} from '../../models/observer';
-import {emailValidation,usernameValidation, passwordValidation} from '../../models/validation';
+import {emailValidation, usernameValidation, passwordValidation} from '../../models/validation';
 export default class RegisterPage extends Component {
     constructor(props) {
         super(props);
@@ -11,13 +12,13 @@ export default class RegisterPage extends Component {
             password: '',
             repeat: '',
             email: '',
-            parentEmail:'',
+            parentEmail: '',
             type: 'child',
             address: '',
-            gender:"boy",
+            gender: "boy",
             submitDisabled: false,
             validPassword: false,
-            validUsername:false
+            validUsername: false
         };
         this.bindEventHandlers();
     }
@@ -33,25 +34,32 @@ export default class RegisterPage extends Component {
         switch (event.target.name) {
             case 'username':
                 this.setState({username: event.target.value});
-                if(!usernameValidation(event.target.value)){
-                    this.setState({validUsername:false});
-                    console.log("username must be at least 6 characters long and contains only letters and numbers");
-                }
-                else{
-                    this.setState({validUsername:true});
-                    console.log("brao");
+                if (!usernameValidation(event.target.value)) {
+                    $('[name="username"]').css("border", "solid red");
 
+                    this.setState({validUsername: false});
+                    // console.log("username must be at least 6 characters long and contains only letters and numbers");
+                }
+                else {
+                    $('[name="username"]').css("border", "solid green");
+
+                    this.setState({validUsername: true});
+                    // console.log("brao");
                 }
                 break;
             case 'password':
                 this.setState({password: event.target.value});
-                if(!passwordValidation(event.target.value)){
-                    console.log("the pass must be at least 6 characters long, containing at least :1 lower case, 1 uppercase and 1 digit");
-                    this.setState({validPassword:false})
+                if (!passwordValidation(event.target.value)) {
+                    $('[name="password"]').css("border", "solid red");
+                    // console.log("the pass must be at least 6 characters long, containing at least :1 lower case, 1 uppercase and 1 digit");
+                    this.setState({validPassword: false})
                 }
                 else {
-                    console.log("good");
-                    this.setState({validPassword:true})
+                    // console.log("good");
+
+
+                    this.setState({validPassword: true})
+                    $('[name="password"]').css("border", "solid green");
                 }
                 break;
 
@@ -83,7 +91,7 @@ export default class RegisterPage extends Component {
     onSubmitHandler(event) {
         event.preventDefault();
 
-        if ( this.state.password !== this.state.repeat) {
+        if (this.state.password !== this.state.repeat) {
             alert("Passwords don't match ");
             return;
         }
@@ -100,12 +108,12 @@ export default class RegisterPage extends Component {
 
             return;
         }
-        if (this.state.type=="child" && !emailValidation(this.state.parentEmail)) {
+        if (this.state.type == "child" && !emailValidation(this.state.parentEmail)) {
             alert("Email doesn't match the requirements");
 
             return;
         }
-        register(this.state.username, this.state.password, this.state.email,this.state.parentEmail, this.state.type, this.state.address,this.state.gender, this.onSubmitResponse);
+        register(this.state.username, this.state.password, this.state.email, this.state.parentEmail, this.state.type, this.state.address, this.state.gender, this.onSubmitResponse);
     }
 
     onSubmitResponse(response) {
@@ -119,6 +127,7 @@ export default class RegisterPage extends Component {
     }
 
     render() {
+
         return (
             <div>
                 <h1 className="form-header">Register Page</h1>
