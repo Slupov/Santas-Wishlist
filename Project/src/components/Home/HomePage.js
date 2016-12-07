@@ -22,7 +22,7 @@ export default class HomePage extends Component {
                     second: 'SS'}
                 }
                 />
-
+<div className="hoho">left until Christmas!</div>
                 {this.props.children}
             </div>
         );

@@ -3,7 +3,8 @@ import React, {Component} from 'react';
 export default class LetterForm extends Component {
     render() {
         return (
-            <form onSubmit={this.props.onSubmitHandler}>
+            <div className="border">
+                <form className="details-box" onSubmit={this.props.onSubmitHandler}>
                 <div className="form-group">
                     <label>Title:</label>
                     <input
@@ -65,7 +66,8 @@ export default class LetterForm extends Component {
                 </div>
 
                 <input className="btn btn-default" type="submit" value="Send" disabled={this.props.submitDisabled}/>
-            </form>
+            </form></div>
+
         );
     }
 }
