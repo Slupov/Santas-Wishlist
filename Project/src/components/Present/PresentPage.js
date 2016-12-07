@@ -31,12 +31,12 @@ export default class PresentPage extends Component {
     onChangeHandler(event) {
         switch (event.target.name) {
             case 'myKidsBtn':
-                this.setState({ listAll: false });
+                this.setState({listAll: false});
                 $('#allKidsBtn').prop('disabled', false);
                 $('#myKidsBtn').prop('disabled', true);
                 break;
             case 'allKidsBtn':
-                this.setState({ listAll: true });
+                this.setState({listAll: true});
                 $('#allKidsBtn').prop('disabled', true);
                 $('#myKidsBtn').prop('disabled', false);
                 break;
@@ -59,6 +59,7 @@ export default class PresentPage extends Component {
                     key={i}
                     username={p.username}
                     senderEmail={p.senderEmail}
+                    parentEmail={p.parentEmail}
                     name={p.name}
                     present_id={p._id}
                     letter_id={p.letter_id}
@@ -66,15 +67,19 @@ export default class PresentPage extends Component {
                 />
             })
         } else {
-            return this.state.presents.filter(p => p.senderEmail === sessionStorage.email).map((p, i) => {
+            //current parent's children's presents only
+            return this.state.presents.filter(p => (p.parentEmail === sessionStorage.email) || (p.parentEmail === sessionStorage.parentEmail) || (p.senderEmail === sessionStorage.email)).map((p, i) => {
                 return <SinglePresent
                     key={i}
                     username={p.username}
                     senderEmail={p.senderEmail}
+                    parentEmail={p.parentEmail}
                     name={p.name}
                     present_id={p._id}
                     letter_id={p.letter_id}
                     status={p.status}
+                    showActions={true}
+
                 />
             })
         }
@@ -90,8 +95,8 @@ export default class PresentPage extends Component {
                        name="myKidsBtn"
                        id="myKidsBtn"
                        value={
-                           sessionStorage.getItem('userType') ==="parent" ?
-                            "My Children Letters Only" : "My siblings and mine letters only"
+                           sessionStorage.getItem('userType') === "parent" ?
+                               "My Children Letters Only" : "My siblings and mine letters only"
                        }
                        disabled={false}
                        onClick={this.onChangeHandler}

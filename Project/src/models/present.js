@@ -1,11 +1,12 @@
 import {get, post, update, _delete} from './requester';
 
-function sendPresent(letter_id, name, username, senderEmail, callback) {
+function sendPresent(letter_id, name, username, senderEmail, parentEmail, callback) {
     let presentData = {
         letter_id,
         name,
         username,
         senderEmail,
+        parentEmail,
         status: "pending"
     };
 
@@ -38,6 +39,7 @@ function updatePresentStatus(id, status) {
                 name: response.name,
                 username: response.username,
                 senderEmail: response.senderEmail,
+                parentEmail: response.parentEmail,
                 status: status
             };
 
@@ -46,9 +48,15 @@ function updatePresentStatus(id, status) {
 }
 
 function checkStatus(props) {
-    let showActions = (props.status === 'pending') && (sessionStorage.getItem('userType') === 'parent') && (sessionStorage.getItem('email') === props.senderEmail);
 
-    return showActions;
+    if (sessionStorage.getItem('userType') === 'parent') {
+        {
+            if (props.status === 'pending') {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
-export {sendPresent, getPresents, updatePresentStatus, checkStatus,deletePresent}
+export {sendPresent, getPresents, updatePresentStatus, checkStatus, deletePresent}

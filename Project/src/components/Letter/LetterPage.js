@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import LetterForm from './LetterForm';
 import {sendLetter} from '../../models/letter';
 import {sendPresent} from '../../models/present'
-import {getCurrentDate,getCurrentUsername,getCurrentLetterId,getCurrentEmail} from '../../utilities'
+import {getCurrentDate,getCurrentUsername,getCurrentParentEmail,getCurrentLetterId,getCurrentEmail} from '../../utilities'
 import observer from '../../models/observer';
 
 export default class LetterPage extends Component {
@@ -52,9 +52,9 @@ export default class LetterPage extends Component {
     }
 
     sendPresents() {
-        sendPresent(getCurrentLetterId(), this.state.present1, getCurrentUsername(),getCurrentEmail());
-        sendPresent(getCurrentLetterId(), this.state.present2, getCurrentUsername(),getCurrentEmail());
-        sendPresent(getCurrentLetterId(), this.state.present3, getCurrentUsername(),getCurrentEmail());
+        sendPresent(getCurrentLetterId(), this.state.present1, getCurrentUsername(),getCurrentEmail(),getCurrentParentEmail());
+        sendPresent(getCurrentLetterId(), this.state.present2, getCurrentUsername(),getCurrentEmail(),getCurrentParentEmail());
+        sendPresent(getCurrentLetterId(), this.state.present3, getCurrentUsername(),getCurrentEmail(),getCurrentParentEmail());
     }
 
     onSubmitHandler(event) {

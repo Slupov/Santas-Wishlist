@@ -14,5 +14,8 @@ function getCurrentLetterId(){
 function getCurrentEmail(){
     return sessionStorage.getItem('email');
 }
+function getCurrentParentEmail(){
+    return sessionStorage.getItem('parentEmail');
+}
 
-export {getCurrentDate,getCurrentUsername,getCurrentLetterId,getCurrentEmail}
+export {getCurrentDate,getCurrentParentEmail,getCurrentUsername,getCurrentLetterId,getCurrentEmail}

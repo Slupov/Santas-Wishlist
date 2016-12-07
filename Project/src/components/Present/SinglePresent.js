@@ -10,6 +10,8 @@ export default class SinglePresent extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            parentEmail:this.props.parentEmail,
+            senderEmail:this.props.senderEmail,
             showActions: checkStatus(this.props),
             status: this.props.status,
             displayStatus: ''
@@ -142,7 +144,7 @@ Just sayin if you wanted to send another letter ;)`;
                     Status:
                     {this.state.status}
                 </div>
-                <div style={{display: this.state.showActions ? 'block' : 'none'}} className="presentActions">
+                <div style={{display: this.state.showActions && this.props.showActions ? 'block' : 'none'}} className="presentActions">
                     <img
                         name="approve"
                         onClick={this.onChangeHandler}
